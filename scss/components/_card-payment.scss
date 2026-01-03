@@ -1,0 +1,251 @@
+// ===========================================
+// PAYMENT CARD COMPONENT
+// ===========================================
+
+.payment-card {
+  width: 100%;
+  max-width: 371px;
+  text-align: left;
+  position: relative;
+
+  &__container {
+    background: $white;
+    border-radius: $border-radius;
+    border-bottom-right-radius: 64px; 
+    padding: $spacing-lg;
+    box-shadow: $box-shadow;
+    height: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-family: $font-family-headings;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $dark-blue-text;
+    margin: 0;
+  }
+
+  &__btn-add {
+    background: $white;
+    border: 1px solid #E1E8F0;
+    border-radius: $border-radius-sm;
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $dark;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $gray-100;
+      border-color: darken(#E1E8F0, 10%);
+    }
+  }
+}
+
+// ===========================================
+// CREDIT CARD VISUAL
+// ===========================================
+
+.credit-card {
+  text-align: left;
+  position: relative;
+  width: 100%;
+  max-width: 321px;
+  height: 213px;
+  margin: 0 auto $spacing-lg;
+  border-radius: $border-radius;
+  overflow: hidden;
+  font-family: $font-family-base;
+
+  &__world-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.25;
+
+    background-image: radial-gradient(rgba(255, 255, 255, 0.4) 4px, transparent 4px);
+    background-size: 12px 12px;
+
+    -webkit-mask-image: url('../../assets/america-map.svg');
+    mask-image: url('../../assets/america-map.svg');
+    -webkit-mask-repeat: no-repeat;
+
+    -webkit-mask-size: 200%; 
+    mask-size: 200%;
+    
+    -webkit-mask-position: 40% 50%; 
+    mask-position: 40% 50%; 
+
+    pointer-events: none;
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    background: #201247;
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: $spacing-lg;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+  }
+
+  &__header-visual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__logo {
+    width: 45px; 
+    height: auto;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__badge {
+    background: $success;
+    color: $white;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    padding: 6px 12px;
+    border-radius: $border-radius-sm;
+  }
+
+  &__number-section {
+    margin: $spacing-sm 0;
+  }
+
+  &__label {
+    text-align: left;
+    font-size: 9px;
+    font-weight: $font-weight-semibold;
+    color: rgba($white, 0.7);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  &__number {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-regular;
+    color: $white;
+    letter-spacing: 2px;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__value {
+    text-align: right;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $white;
+  }
+}
+
+// ===========================================
+// TRANSACTIONS LIST
+// ===========================================
+
+.transactions {
+  text-align: left;
+  
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-md 0;
+    border-bottom: 1px solid #F5F7FA;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__info {
+    text-align: left;
+    flex: 1;
+  }
+
+  &__merchant {
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $dark-blue-text;
+    margin: 0 0 2px;
+  }
+
+  &__status {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-regular;
+    color: #8995A8;
+    margin: 0;
+  }
+
+  &__amount {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $dark-blue-text;
+    text-align: right;
+  }
+
+  &__view-all {
+    display: inline-block;
+    margin-top: $spacing-md;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $primary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: darken($primary, 10%);
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+// ===========================================
+// RESET Y BASE
+// ===========================================
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $body-color;
+  letter-spacing: $letter-spacing-normal;
+}
+
+// ===========================================
+// TIPOGRAFÍA - HEADINGS
+// ===========================================
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-family-headings;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: $dark;
+}
+
+h1, .h1 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+}
+
+h2, .h2 {
+  font-size: $font-size-3xl;
+}
+
+h3, .h3 {
+  font-size: $font-size-2xl;
+}
+
+h4, .h4 {
+  font-size: $font-size-xl;
+}
+
+h5, .h5 {
+  font-size: $font-size-lg;
+}
+
+h6, .h6 {
+  font-size: $font-size-base;
+}
+
+// ===========================================
+// TIPOGRAFÍA - ELEMENTOS
+// ===========================================
+p {
+  margin-bottom: 1rem;
+  
+  &.lead {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-relaxed;
+  }
+}
+
+// Labels y texto pequeño
+small,
+.small,
+.text-sm {
+  font-size: $font-size-sm;
+}
+
+.text-xs {
+  font-size: $font-size-xs;
+}
+
+// Texto destacado
+strong,
+.fw-medium {
+  font-weight: $font-weight-medium;
+}
+
+.fw-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+// ===========================================
+// LINKS
+// ===========================================
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+// ===========================================
+// BOTONES (mejora tipográfica)
+// ===========================================
+.btn {
+  font-family: $font-family-base;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-wide;
+}
+
+// ===========================================
+// NAVBAR (mejora tipográfica)
+// ===========================================
+.navbar {
+  font-family: $font-family-base;
+  
+  .navbar-brand {
+    font-family: $font-family-headings;
+    font-weight: $font-weight-semibold;
+  }
+  
+  .nav-link {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-sm;
+    letter-spacing: $letter-spacing-wide;
+  }
+}

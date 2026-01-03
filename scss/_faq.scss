@@ -1,0 +1,53 @@
+// ============================================
+// FAQ SECTION
+// ============================================
+
+.faq {
+  padding: 8rem 0;
+  background-color: $white;
+
+  .section-title {
+    color: $dark-blue-text;
+    font-weight: $font-weight-bold;
+    margin-bottom: 4rem;
+  }
+
+  &__accordion {
+    // Usamos las variables que ya configuramos
+    .accordion-item {
+      // Solo queremos borde inferior para un look moderno
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      // El color del borde viene de $accordion-border-color
+    }
+
+    .accordion-button {
+      font-size: 1.15rem;
+      font-weight: 600;
+      
+      // Personalizamos la flecha si es necesario
+      &::after {
+        width: 1rem;
+        background-size: 1rem;
+      }
+    }
+
+    .accordion-body {
+      padding-top: 0;
+      padding-bottom: 2rem;
+      color: $gray-600;
+      line-height: $line-height-relaxed;
+    }
+  }
+
+  &__cta {
+    margin-top: 5rem;
+    &-text {
+      font-size: 1.25rem;
+      font-weight: 700; // Subimos a 700 para que haga juego con el peso de los títulos
+      color: $dark-blue-text;
+      letter-spacing: -0.02em;
+    }
+  }
+}

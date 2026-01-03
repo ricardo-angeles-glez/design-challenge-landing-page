@@ -1,0 +1,366 @@
+// ============================================
+// NAVBAR STYLES - VERSIÓN OPTIMIZADA Y LIMPIA
+// ============================================
+
+.navbar {
+  font-family: $font-family-base;
+  font-size: $nav-link-font-size;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  transition: all 0.3s ease-in-out;
+
+  // Links de navegación BASE
+  .nav-link {
+    color: rgba($white, 0.85) !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: $border-radius;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba($white, 0.12);
+      color: $white !important;
+      transform: translateY(-1px);
+    }
+  }
+
+  // Botón de Sign in
+  .nav-link.fw-semibold {
+    border: 1px solid rgba($white, 0.3);
+    margin-left: 0.5rem;
+
+    &:hover {
+      background-color: $white;
+      color: $primary !important;
+      border-color: $white;
+    }
+  }
+}
+
+// ============================================
+// NAVBAR TRANSPARENTE Y SCROLLED
+// ============================================
+
+.navbar-transparent {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0.8rem 0;
+
+  .container {
+    border-bottom: 1px solid rgba($white, 0.2);
+    padding-bottom: 0.4rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .navbar-brand {
+    color: $white;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+// Estado con scroll
+.navbar-transparent.scrolled {
+  background-color: rgba($primary, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+
+  .container {
+    border-bottom-color: transparent;
+    padding-bottom: 0;
+  }
+
+  .nav-link:hover {
+    background-color: rgba($white, 0.15);
+  }
+}
+
+// ============================================
+// DESKTOP (≥ 992px)
+// ============================================
+@media (min-width: 992px) {
+  .navbar-nav.mx-lg-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .navbar-nav {
+    &.gap-lg-4 {
+      gap: 1.5rem;
+    }
+
+    &.gap-lg-3 {
+      gap: 1rem;
+    }
+  }
+
+  .nav-link {
+    white-space: nowrap;
+  }
+
+  .btn-light {
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: none;
+    background-color: $white;
+    color: $primary;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: darken($white, 5%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// ============================================
+// TABLET Y MOBILE (< 992px)
+// ============================================
+@media (max-width: 991.98px) {
+  
+  // Navbar siempre con fondo sólido en móvil/tablet
+  .navbar-transparent {
+    background-color: $primary;
+    backdrop-filter: none;
+    padding: 0.75rem 0;
+
+    .container {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    &.scrolled {
+      background-color: $primary;
+      padding: 0.6rem 0;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // Menu colapsable
+  .navbar-collapse {
+    margin-top: 1rem;
+    background-color: transparent; // NO poner otro azul encima
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .navbar-nav {
+    padding: 0.75rem 0;
+
+    .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link {
+      padding: 0.875rem 1rem !important;
+      font-size: 1rem;
+      color: $white !important;
+      border-radius: 6px;
+      background-color: rgba($white, 0.05);
+      border: 1px solid rgba($white, 0.1);
+      display: block;
+
+      &:hover,
+      &:active {
+        background-color: rgba($white, 0.15);
+        border-color: rgba($white, 0.2);
+        transform: none;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Sección de botones (Sign in y Buy now)
+  .navbar-nav:last-child {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba($white, 0.15);
+
+    .nav-item {
+      width: 100%;
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .nav-link.fw-semibold {
+      margin-left: 0;
+      text-align: center;
+      background-color: transparent;
+      border: 2px solid rgba($white, 0.4);
+
+      &:hover {
+        background-color: rgba($white, 0.1);
+        border-color: rgba($white, 0.6);
+        color: $white !important;
+      }
+    }
+
+    .btn-light {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: $white;
+      color: $primary;
+      border: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: darken($white, 5%);
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  // ============================================
+  // TOGGLER (HAMBURGUESA)
+  // ============================================
+  .navbar-toggler {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba($white, 0.3);
+    }
+
+    &:active {
+      background-color: rgba($white, 0.1);
+    }
+
+    // Contenedor de las barras
+    .icon-bar {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: $white;
+      border-radius: 2px;
+      position: absolute;
+      left: 50%;
+      margin-left: -12px;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .top-bar {
+      top: 11px;
+    }
+
+    .middle-bar {
+      top: 19px;
+    }
+
+    .bottom-bar {
+      top: 27px;
+    }
+
+    // Cuando está abierto (SIN clase collapsed)
+    &:not(.collapsed) {
+      .top-bar {
+        top: 19px;
+        transform: rotate(45deg);
+      }
+
+      .middle-bar {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      .bottom-bar {
+        top: 19px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+// ============================================
+// AJUSTES ESPECÍFICOS PARA TABLETS
+// ============================================
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-nav {
+    .nav-link {
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem !important;
+    }
+  }
+
+  .navbar-nav:last-child {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    border-top: 1px solid rgba($white, 0.15);
+    padding-top: 1rem;
+    margin-top: 1rem;
+
+    .nav-item {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .nav-link.fw-semibold,
+    .btn-light {
+      width: 100%;
+    }
+  }
+}
+
+// ============================================
+// MOBILE LANDSCAPE
+// ============================================
+@media (max-width: 991.98px) and (orientation: landscape) and (max-height: 500px) {
+  .navbar-collapse {
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba($white, 0.05);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($white, 0.3);
+      border-radius: 2px;
+    }
+  }
+
+  .navbar-nav {
+    padding: 0.5rem 0;
+
+    .nav-link {
+      padding: 0.625rem 1rem !important;
+      font-size: 0.9rem;
+    }
+  }
+
+  .navbar-nav:last-child {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+}

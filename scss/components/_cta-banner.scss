@@ -1,0 +1,107 @@
+// Usamos el color oscuro de tu proyecto para el fondo
+.cta-banner {
+  background-color: $dark; // Tu variable #0b1b2b
+  
+  // Bordes: Usamos tus medidas de radio pero manteniendo el estilo Odoo
+  border-top-right-radius: 64px;
+  border-bottom-left-radius: 64px;
+  
+  // Spacing: Usamos tu escala de espaciado (3rem = 48px aprox)
+  padding: $spacing-2xl $spacing-2xl * 1.5; 
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  width: 100%;
+  
+  // Un borde sutil usando tu variable de color de borde pero con transparencia
+  border: $border-width solid rgba($white, 0.1);
+
+  .cta-content {
+    flex: 1;
+
+    .cta-title {
+      color: $white;
+      font-family: $headings-font-family;
+      font-weight: $headings-font-weight;
+      // Usamos tus tamaños h3-h2 para el título del banner
+      font-size: clamp($h4-font-size, 4vw, $h2-font-size);
+      line-height: $headings-line-height;
+      letter-spacing: $letter-spacing-tight;
+      margin-bottom: $spacing-sm;
+    }
+
+    .cta-text {
+      color: rgba($white, 0.85);
+      font-family: $font-family-base;
+      // Usamos tu tamaño de fuente grande y el line-height relajado
+      font-size: $font-size-lg;
+      line-height: $line-height-relaxed;
+      max-width: 600px;
+      margin-bottom: 0;
+    }
+  }
+
+  .btn-learn-more {
+    // Heredamos directamente de tus variables de botones
+    background-color: $light;
+    color: $dark-blue-text; // Tu variable #1D3362
+    
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    border-radius: $btn-border-radius; // 0.5rem según tus variables
+    
+    font-family: $font-family-base;
+    font-size: $btn-font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    white-space: nowrap;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    transition: $transition-base;
+    box-shadow: $box-shadow-sm;
+
+    svg {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      background-color: $gray-100;
+      box-shadow: $box-shadow;
+      color: $dark-blue-accent; // Tu variable #2E426D
+      
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // --- RESPONSIVE USANDO TUS BREAKPOINTS ---
+  @media (max-width: 991px) {
+    flex-direction: column;
+    text-align: center;
+    padding: $spacing-2xl $spacing-xl;
+    
+    // Suavizamos el radio en móviles para coherencia visual
+    border-top-right-radius: $border-radius-xl * 1.5;
+    border-bottom-left-radius: $border-radius-xl * 1.5;
+
+    .cta-content .cta-text {
+      font-size: $font-size-base;
+      max-width: 100%;
+    }
+
+    .btn-learn-more {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// Contenedor externo para el espaciado vertical
+.section-cta-final {
+  padding-bottom: 10rem; // Mantiene el ritmo de tu zigzag-row
+}

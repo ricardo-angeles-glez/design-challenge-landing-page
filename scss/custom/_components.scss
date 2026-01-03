@@ -1,0 +1,97 @@
+// ============================================
+// COMPONENTES PERSONALIZADOS USANDO BOOTSTRAP
+// ============================================
+
+// Navbar personalizado
+.navbar-custom {
+  border-bottom: 1px solid rgba($white, 0.15);
+  transition: all 0.3s ease;
+  
+  &.scrolled {
+    background: rgba($dark, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom-color: rgba($white, 0.25);
+  }
+  
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-dark-color;
+      font-size: map-get($font-sizes, "sm");
+      font-weight: map-get($font-weights, "medium");
+      transition: $transition-base;
+      
+      &:hover,
+      &:focus {
+        color: $navbar-dark-hover-color;
+      }
+    }
+  }
+}
+
+// Hero section
+.hero {
+  background: linear-gradient(135deg, $dark 0%, lighten($dark, 10%) 100%);
+  min-height: 100vh;
+  
+  h1 {
+    @include font-size(map-get($font-sizes, "4xl"));
+    font-weight: map-get($font-weights, "bold");
+    font-family: $headings-font-family;
+  }
+  
+  .lead {
+    @include font-size(map-get($font-sizes, "lg"));
+    color: rgba($white, 0.9);
+  }
+}
+
+// Feature cards
+.feature-card {
+  @extend .card;
+  @extend .h-100;
+  @extend .shadow-sm;
+  border: none;
+  border-radius: map-get($border-radii, "lg");
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    @extend .shadow-lg;
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba($primary, 0.1);
+    border-radius: map-get($border-radii, "circle");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary;
+    font-size: map-get($font-sizes, "2xl");
+  }
+}
+
+// Payment card específico
+.payment-card {
+  @extend .card;
+  border-radius: map-get($border-radii, "lg");
+  padding: map-get($spacers, 4);
+  
+  .payment-header {
+    border-bottom: 1px solid $gray-200;
+    padding-bottom: map-get($spacers, 3);
+    margin-bottom: map-get($spacers, 4);
+  }
+  
+  .price {
+    font-size: map-get($font-sizes, "3xl");
+    font-weight: map-get($font-weights, "bold");
+    color: $primary;
+  }
+}
+
+// Utilities personalizadas
+.text-dark-blue {
+  color: map-get($theme-colors, "dark-blue-text") !important;
+}

@@ -1,0 +1,332 @@
+// --- Variables de Configuración ---
+// Ajusta estos valores y todo el diseño crecerá proporcionalmente
+$card-width: 260px;   // Antes era 212px
+$card-gap: 24px;      // Espacio entre columnas
+$border-color: #EEEFF4;
+$text-dark: #2E426D;
+$text-light: #8995A8;
+
+// --- Mixin para tipografía ---
+@mixin text-style($size, $weight, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: 1.4;
+}
+
+// Zigzag Cards Component
+.zigzag-cards-container {
+  position: relative;
+  // El ancho total es: ancho tarjeta * 2 + el espacio
+  width: 100%;
+  max-width: calc(#{$card-width} * 2 + #{$card-gap}); 
+  // La altura base estimada aumentada
+  height: 560px; 
+  margin: 0 auto;
+
+  @include media-breakpoint-down(lg) {
+    max-width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// --- Estilos Base para todas las tarjetas ---
+%card-base {
+  background: white;
+  border-radius: 12px; // Bordes un poco más redondeados por el tamaño
+  border: 1px solid $border-color;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05); // Sombra suave para dar volumen
+  width: $card-width;
+  
+  @include media-breakpoint-down(lg) {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    height: auto !important;
+  }
+}
+
+// 1. User Card
+.user-card {
+  @extend %card-base;
+  position: absolute;
+  top: 70px; // Bajamos un poco más la posición inicial
+  left: 0;
+  height: 340px; // Aumentado proporcionalmente
+
+  .user-card-image {
+    width: 100%;
+    height: 100%; // Ocupa todo, el footer lo tapa
+    object-fit: cover;
+  }
+
+  .user-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .user-card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 1.25rem; // Padding más grande
+    background: white;
+    z-index: 2;
+    border-top: 1px solid $border-color;
+  }
+
+  .user-avatar {
+    width: 40px; // Avatar más grande
+    height: 40px;
+    background: #FCC24B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    
+    span {
+      @include text-style(14px, 600, $text-dark);
+    }
+  }
+
+  .user-name {
+    @include text-style(14px, 600, $text-dark); // Texto más grande
+    flex: 1;
+  }
+
+  .user-card-heart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    
+    svg {
+      width: 20px; // Icono más grande
+      height: 20px;
+    }
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+}
+
+// 2. Airbnb Reviews Card
+.airbnb-card {
+  @extend %card-base;
+  position: absolute;
+  top: 0;
+  left: calc(#{$card-width} + #{$card-gap}); // Posicionamiento matemático
+  height: 260px; // Altura aumentada
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .airbnb-logo {
+    height: 34px; // Logo más grande
+    width: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 1.25rem;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .airbnb-rating {
+    @include text-style(16px, 600, $text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .airbnb-reviews {
+    @include text-style(13px, 500, $text-light);
+  }
+}
+
+// 3. Website Kit Card
+.website-kit-card {
+  @extend %card-base;
+  position: absolute;
+  // Top = Altura de Airbnb + Gap
+  top: calc(260px + #{$card-gap}); 
+  left: calc(#{$card-width} + #{$card-gap});
+  height: 300px;
+  padding: 2rem;
+  text-align: center;
+
+  .kit-icon {
+    width: 64px; // Icono principal más grande
+    height: 64px;
+    background: #13161B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  .kit-title {
+    @include text-style(16px, 600, $text-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .user-avatars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    
+    .avatar-small {
+      width: 40px; // Avatares de usuario más grandes
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      margin-left: -15px; // Solapamiento ajustado
+      object-fit: cover;
+      transition: transform 0.2s ease, z-index 0s;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        z-index: 10;
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  .kit-divider {
+    height: 1px;
+    background: $border-color;
+    margin: 0 -2rem 1rem; // Ajuste negativo para tocar los bordes
+  }
+
+  .kit-actions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .kit-action-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: $text-dark;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      color: darken($text-dark, 10%);
+    }
+  }
+}
+
+// 4. Components Mini Card
+.components-card {
+  @extend %card-base;
+  position: absolute;
+  // Top = Altura user card (340) + Top offset (70) + Gap
+  top: calc(340px + 70px + #{$card-gap}); 
+  left: 0;
+  height: 90px; // Más alta
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  .check-icon-lg {
+    width: 48px;
+    height: 48px;
+    background: #5CCAA7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    
+    svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.5px; // Línea más gruesa para que se vea mejor
+    }
+  }
+
+  .components-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .components-title {
+    @include text-style(16px, 700, $text-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .components-subtitle {
+    @include text-style(13px, 500, $text-light);
+    margin-bottom: 0;
+  }
+}
+
+// Link con flecha (Textura derecha)
+.btn-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem; // Texto del enlace más grande
+  font-weight: 600;
+  text-decoration: none;
+  // Asegúrate de definir tu color primario o usar el hex
+  color: #2E426D; 
+  transition: gap 0.3s ease;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    gap: 1rem;
+    svg {
+      transform: translateX(2px);
+    }
+  }
+}

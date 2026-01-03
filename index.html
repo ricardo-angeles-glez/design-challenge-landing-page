@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Odoo - Design Exercise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons (si los necesitas) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Tu CSS compilado (incluye Bootstrap) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent" role="navigation">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#hero" aria-label="Odoo home">
+        <img src="assets/odoo-white.svg" alt="Odoo" height="28" />
+      </a>
+
+      <!-- Toggler con barras custom + clase collapsed inicial -->
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <!-- Navigation -->
+      <div class="collapse navbar-collapse" id="mainNav">
+
+        <!-- Primary navigation (center) -->
+        <ul class="navbar-nav mx-lg-auto align-items-lg-center gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+        </ul>
+
+        <!-- Secondary actions (right) -->
+        <ul class="navbar-nav align-items-lg-center gap-lg-3">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#sign-in">Sign in</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light btn-sm d-flex align-items-center gap-2 px-3" href="#purchase" aria-label="Buy now">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+                aria-hidden="true">
+                <path
+                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1.5 7A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.49-.402L1.61 2H.5a.5.5 0 0 1-.5-.5z" />
+                <path d="M5 12a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+              </svg>
+              Buy now
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Hero section">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold mb-3">
+            Development<br />done right
+          </h1>
+          <p class="lead mb-4">
+            Build a beautiful, modern website with<br> flexible components built from scratch.
+          </p>
+
+          <div class="d-flex flex-column gap-4">
+            <div>
+              <a href="#" class="btn btn-light hero__btn">Get started +</a>
+            </div>
+
+            <div class="hero__trusted d-flex align-items-center gap-3">
+              <span class="hero__trusted-text">Trusted by:</span>
+              <div class="hero__logos d-flex align-items-center gap-3">
+                <img src="assets/google-white.svg" alt="Google">
+                <img src="assets/spotify-white.svg" alt="Amazon">
+                <img src="assets/airbnb-white.svg" alt="Spotify">
+                <img src="assets/paypal-white.svg" alt="Paypal">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nueva tarjeta -->
+        <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
+          <div class="payment-card">
+            <div class="payment-card__container">
+
+              <!-- Header -->
+              <div class="payment-card__header">
+                <h3 class="payment-card__title">Manage cards</h3>
+                <button class="payment-card__btn-add">Add new</button>
+              </div>
+
+              <!-- Credit Card Visual -->
+              <div class="credit-card">
+                <div class="credit-card__background"></div>
+
+                <!-- Patrón de mapa mundial -->
+                <div class="credit-card__world-map">
+                </div>
+
+                <div class="credit-card__content">
+                  <div class="credit-card__header-visual">
+                    <span class="credit-card__badge">Active</span>
+                    <div class="credit-card__logo">
+                      <img src="assets/mastercard.svg" alt="Mastercard" loading="lazy">
+                    </div>
+                  </div>
+
+                  <div class="credit-card__number-section">
+                    <span class="credit-card__label">Card Number</span>
+                    <p class="credit-card__number">4358 - 7421 - 9256 - 6682</p>
+                  </div>
+
+                  <div class="credit-card__details">
+                    <div class="credit-card__info-group">
+                      <span class="credit-card__label">Name</span>
+                      <span class="credit-card__value">John Snow</span>
+                    </div>
+                    <div class="credit-card__info-group">
+                      <span class="credit-card__label">Expiry Date</span>
+                      <span class="credit-card__value">11/23</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Transactions -->
+              <div class="transactions">
+                <ul class="transactions__list">
+                  <li class="transactions__item">
+                    <div class="transactions__info">
+                      <h4 class="transactions__merchant">Starbucks</h4>
+                      <p class="transactions__status">Pending - San Francisco, United States</p>
+                    </div>
+                    <span class="transactions__amount">$5,50 USD</span>
+                  </li>
+
+                  <li class="transactions__item">
+                    <div class="transactions__info">
+                      <h4 class="transactions__merchant">Nike Sports</h4>
+                      <p class="transactions__status">Pending - Lisbon, Portugal</p>
+                    </div>
+                    <span class="transactions__amount">$129,00 USD</span>
+                  </li>
+                </ul>
+
+                <a href="#" class="transactions__view-all">View all</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Zigzag Section -->
+  <section class="features-zigzag" id="features" aria-label="Product features">
+    <div class="container">
+      <!-- Zigzag-1-->
+      <div class="row align-items-center zigzag-row">
+        <div class="col-lg-6">
+          <div class="zigzag-visual-container">
+            <div class="card-tasks-figma">
+              <h3 class="card-tasks-title">Awesome projects</h3>
+
+              <div class="task-item">
+                <div class="task-header">
+                  <span class="task-name">Create the new logo</span>
+                  <span class="task-time"><time>3:50</time> <i class="bi bi-chevron-right"></i></span>
+                </div>
+                <div class="progress-bar-custom">
+                  <div class="progress-fill" style="width: 40%;"></div>
+                </div>
+              </div>
+
+              <div class="task-item">
+                <div class="task-header">
+                  <span class="task-name">Set up the color palette</span>
+                  <span class="task-time"><time>4:00</time> <i class="bi bi-chevron-right"></i></span>
+                </div>
+                <div class="progress-bar-custom">
+                  <div class="progress-fill" style="width: 60%;"></div>
+                </div>
+              </div>
+
+              <div class="task-item">
+                <div class="task-header">
+                  <span class="task-name">Wireframe and prototype</span>
+                  <span class="task-time"><time>6:50</time> <i class="bi bi-chevron-right"></i></span>
+                </div>
+                <div class="progress-bar-custom">
+                  <div class="progress-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-video-figma">
+              <img src="assets/img_01.jpg" alt="Preview workspace">
+
+              <button class="play-button-figma" aria-label="Play video">
+                <span class="play-label">Play video</span>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M2.08331 1.25L7.91665 5L2.08331 8.75V1.25Z" stroke="#2E426D" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 offset-lg-1">
+          <span class="badge-accent">Tools</span>
+          <h2 class="section-title">We build for designers and developers</h2>
+          <p class="section-description">
+            Get components and examples, including tons of variables that will help you grow your business.
+          </p>
+        </div>
+      </div>
+      <!-- Zigzag-2-->
+      <div class="row align-items-center zigzag-row">
+        <div class="col-lg-5 order-2 order-lg-1">
+          <span class="badge-accent">Features</span>
+          <h2 class="section-title">Designed to adapt as you grow</h2>
+          <p class="section-description">
+            Get components and examples, including tons of variables that will help you grow your business.
+          </p>
+
+          <ul class="feature-checklist">
+            <li>
+              <span class="check-icon"><i class="bi bi-check2"></i></span>
+              <span>Perfect for modern startups</span>
+            </li>
+            <li>
+              <span class="check-icon"><i class="bi bi-check2"></i></span>
+              <span>Fully customizable and scalable</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6 offset-lg-1 order-1 order-lg-2">
+          <div class="zigzag-video-wrapper">
+            <div class="video-display-area">
+              <img src="assets/img_02.jpg" alt="Startup dashboard" class="video-bg-img">
+
+              <button class="play-button-figma">
+                <span class="play-label">Play video</span>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M2.08331 1.25L7.91665 5L2.08331 8.75V1.25Z" stroke="#2E426D" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Zigzag-3 -->
+      <div class="row align-items-center zigzag-row">
+        <div class="col-lg-6">
+          <div class="zigzag-cards-container">
+            <!-- User Card -->
+            <div class="user-card">
+              <img src="assets/person_03.jpg" alt="Jimmy Hendrix" class="user-card-image">
+              <div class="user-card-overlay"></div>
+              <div class="user-card-footer">
+                <div class="user-avatar">
+                  <span>JH</span>
+                </div>
+                <span class="user-name">Jimmy Hendrix</span>
+                <button class="user-card-heart" aria-label="Like">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.44 3.33328C12.7333 2.62475 11.7965 2.19231 10.7989 2.11406C9.80126 2.03581 8.80852 2.31692 8.00001 2.90661C7.15178 2.27571 6.09601 1.98962 5.04529 2.10597C3.99458 2.22232 3.02697 2.73247 2.33733 3.53367C1.64768 4.33488 1.28723 5.36763 1.32854 6.42396C1.36986 7.48029 1.80989 8.48173 2.56001 9.22661L6.70001 13.3733C7.04669 13.7145 7.5136 13.9057 8.00001 13.9057C8.48642 13.9057 8.95333 13.7145 9.30001 13.3733L13.44 9.22661C14.2184 8.44346 14.6553 7.38413 14.6553 6.27995C14.6553 5.17577 14.2184 4.11644 13.44 3.33328ZM12.5 8.30661L8.36001 12.4466C8.3129 12.4942 8.25683 12.5319 8.19504 12.5577C8.13325 12.5835 8.06696 12.5968 8.00001 12.5968C7.93306 12.5968 7.86678 12.5835 7.80498 12.5577C7.74319 12.5319 7.68712 12.4942 7.64001 12.4466L3.50001 8.28661C2.97718 7.75218 2.68442 7.03426 2.68442 6.28661C2.68442 5.53897 2.97718 4.82105 3.50001 4.28661C4.03278 3.76061 4.75133 3.46566 5.50001 3.46566C6.2487 3.46566 6.96724 3.76061 7.50001 4.28661C7.56199 4.3491 7.63572 4.3987 7.71696 4.43254C7.7982 4.46639 7.88534 4.48381 7.97334 4.48381C8.06135 4.48381 8.14849 4.46639 8.22973 4.43254C8.31097 4.3987 8.3847 4.3491 8.44668 4.28661C8.97945 3.76061 9.69799 3.46566 10.4467 3.46566C11.1954 3.46566 11.9139 3.76061 12.4467 4.28661C12.9767 4.81405 13.2791 5.52807 13.289 6.27574C13.299 7.0234 13.0158 7.74524 12.5 8.28661V8.30661Z"
+                      fill="#2E426D" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Airbnb Reviews Card -->
+            <div class="airbnb-card">
+              <img src="assets/airbnb.svg" alt="Airbnb" class="airbnb-logo">
+
+              <div class="star-rating">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.99998 1.33337L10.06 5.50671L14.6666 6.18004L11.3333 9.42671L12.12 14.0134L7.99998 11.8467L3.87998 14.0134L4.66665 9.42671L1.33331 6.18004L5.93998 5.50671L7.99998 1.33337Z"
+                    fill="#FFC535" stroke="#FFC535" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.99998 1.33337L10.06 5.50671L14.6666 6.18004L11.3333 9.42671L12.12 14.0134L7.99998 11.8467L3.87998 14.0134L4.66665 9.42671L1.33331 6.18004L5.93998 5.50671L7.99998 1.33337Z"
+                    fill="#FFC535" stroke="#FFC535" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.99998 1.33337L10.06 5.50671L14.6666 6.18004L11.3333 9.42671L12.12 14.0134L7.99998 11.8467L3.87998 14.0134L4.66665 9.42671L1.33331 6.18004L5.93998 5.50671L7.99998 1.33337Z"
+                    fill="#FFC535" stroke="#FFC535" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.99998 1.33337L10.06 5.50671L14.6666 6.18004L11.3333 9.42671L12.12 14.0134L7.99998 11.8467L3.87998 14.0134L4.66665 9.42671L1.33331 6.18004L5.93998 5.50671L7.99998 1.33337Z"
+                    fill="#FFC535" stroke="#FFC535" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.99998 1.33337L10.06 5.50671L14.6666 6.18004L11.3333 9.42671L12.12 14.0134L7.99998 11.8467L3.87998 14.0134L4.66665 9.42671L1.33331 6.18004L5.93998 5.50671L7.99998 1.33337Z"
+                    fill="url(#paint0_linear_airbnb)" stroke="#FFC535" stroke-linecap="round" stroke-linejoin="round" />
+                  <defs>
+                    <linearGradient id="paint0_linear_airbnb" x1="1.33331" y1="7.67337" x2="14.6666" y2="7.67337"
+                      gradientUnits="userSpaceOnUse">
+                      <stop offset="0.658654" stop-color="#FFC535" />
+                      <stop offset="0.802885" stop-color="white" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="airbnb-rating">4.95 out of 5 stars</p>
+              <p class="airbnb-reviews">from 23 reviews</p>
+            </div>
+
+            <!-- Website Kit Card -->
+            <div class="website-kit-card">
+              <div class="kit-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.36 9.28003L16 16.0134L27.64 9.28003M16 29.44V16M28 21.3334V10.6667C27.9995 10.1991 27.8761 9.73978 27.6421 9.33492C27.408 8.93005 27.0716 8.59385 26.6667 8.36003L17.3333 3.0267C16.9279 2.79265 16.4681 2.66943 16 2.66943C15.5319 2.66943 15.0721 2.79265 14.6667 3.0267L5.33333 8.36003C4.92835 8.59385 4.59197 8.93005 4.35795 9.33492C4.12392 9.73978 4.00048 10.1991 4 10.6667V21.3334C4.00048 21.801 4.12392 22.2603 4.35795 22.6651C4.59197 23.07 4.92835 23.4062 5.33333 23.64L14.6667 28.9734C15.0721 29.2074 15.5319 29.3306 16 29.3306C16.4681 29.3306 16.9279 29.2074 17.3333 28.9734L26.6667 23.64C27.0716 23.4062 27.408 23.07 27.6421 22.6651C27.8761 22.2603 27.9995 21.801 28 21.3334Z"
+                    stroke="#F8FCFB" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <p class="kit-title">Website UI Kit</p>
+
+              <div class="user-avatars">
+                <img src="assets/person_01.jpg" alt="User 1" class="avatar-small">
+                <img src="assets/person_02.jpg" alt="User 2" class="avatar-small">
+                <img src="assets/person_03.jpg" alt="User 3" class="avatar-small">
+              </div>
+
+              <div class="kit-divider"></div>
+
+              <div class="kit-actions">
+                <button class="kit-action-btn" aria-label="Attach">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12.0533 8.27998L7.93334 12.4066C7.39322 12.8867 6.6901 13.1422 5.96782 13.1209C5.24554 13.0996 4.55867 12.8032 4.04772 12.2923C3.53677 11.7813 3.24034 11.0944 3.21908 10.3722C3.19782 9.64988 3.45333 8.94677 3.93334 8.40664L9.26667 3.07331C9.58509 2.77084 10.0075 2.6022 10.4467 2.6022C10.8858 2.6022 11.3083 2.77084 11.6267 3.07331C11.9369 3.38771 12.1108 3.81163 12.1108 4.25331C12.1108 4.695 11.9369 5.11892 11.6267 5.43331L7.02667 10.0266C6.98115 10.0757 6.92641 10.1153 6.86559 10.1431C6.80477 10.171 6.73905 10.1866 6.67219 10.1891C6.60534 10.1916 6.53864 10.1809 6.47593 10.1576C6.41321 10.1343 6.3557 10.0988 6.30667 10.0533C6.25764 10.0078 6.21806 9.95305 6.19019 9.89223C6.16232 9.83141 6.1467 9.76569 6.14422 9.69884C6.14175 9.63198 6.15246 9.56529 6.17576 9.50257C6.19906 9.43985 6.23448 9.38234 6.28 9.33331L9.70001 5.91998C9.82554 5.79444 9.89607 5.62418 9.89607 5.44665C9.89607 5.26911 9.82554 5.09885 9.70001 4.97331C9.57447 4.84778 9.40421 4.77725 9.22667 4.77725C9.04914 4.77725 8.87887 4.84778 8.75334 4.97331L5.33334 8.39998C5.16221 8.56978 5.02638 8.77178 4.93369 8.99433C4.841 9.21687 4.79328 9.45557 4.79328 9.69665C4.79328 9.93772 4.841 10.1764 4.93369 10.399C5.02638 10.6215 5.16221 10.8235 5.33334 10.9933C5.68292 11.3263 6.14721 11.512 6.63 11.512C7.1128 11.512 7.57709 11.3263 7.92667 10.9933L12.52 6.39331C13.0499 5.82461 13.3384 5.07243 13.3247 4.29522C13.311 3.51802 12.9961 2.77648 12.4465 2.22682C11.8968 1.67717 11.1553 1.36232 10.3781 1.34861C9.60089 1.3349 8.84871 1.62339 8.28001 2.15331L2.94667 7.48664C2.22747 8.2832 1.84336 9.32655 1.87436 10.3993C1.90536 11.472 2.34909 12.4915 3.1131 13.2452C3.8771 13.9988 4.90246 14.4287 5.97553 14.4451C7.0486 14.4615 8.08663 14.0633 8.87334 13.3333L13 9.21331C13.0622 9.15115 13.1115 9.07736 13.1451 8.99614C13.1788 8.91493 13.1961 8.82788 13.1961 8.73998C13.1961 8.65207 13.1788 8.56503 13.1451 8.48381C13.1115 8.4026 13.0622 8.3288 13 8.26664C12.9378 8.20449 12.8641 8.15518 12.7828 8.12154C12.7016 8.0879 12.6146 8.07058 12.5267 8.07058C12.4388 8.07058 12.3517 8.0879 12.2705 8.12154C12.1893 8.15518 12.1155 8.20449 12.0533 8.26664V8.27998Z"
+                      fill="#2E426D" />
+                  </svg>
+                </button>
+
+                <button class="kit-action-btn" aria-label="View">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.6133 7.73329C13.2666 4.60663 10.7333 2.66663 7.99998 2.66663C5.26665 2.66663 2.73332 4.60663 1.38665 7.73329C1.34994 7.8174 1.33099 7.90819 1.33099 7.99996C1.33099 8.09173 1.34994 8.18252 1.38665 8.26663C2.73332 11.3933 5.26665 13.3333 7.99998 13.3333C10.7333 13.3333 13.2666 11.3933 14.6133 8.26663C14.65 8.18252 14.669 8.09173 14.669 7.99996C14.669 7.90819 14.65 7.8174 14.6133 7.73329ZM7.99998 12C5.88665 12 3.88665 10.4733 2.73332 7.99996C3.88665 5.52663 5.88665 3.99996 7.99998 3.99996C10.1133 3.99996 12.1133 5.52663 13.2666 7.99996C12.1133 10.4733 10.1133 12 7.99998 12ZM7.99998 5.33329C7.47257 5.33329 6.95699 5.48969 6.51846 5.78271C6.07993 6.07572 5.73814 6.4922 5.5363 6.97947C5.33447 7.46674 5.28166 8.00292 5.38456 8.5202C5.48745 9.03748 5.74143 9.51264 6.11437 9.88558C6.48731 10.2585 6.96246 10.5125 7.47974 10.6154C7.99703 10.7183 8.5332 10.6655 9.02047 10.4636C9.50774 10.2618 9.92422 9.92001 10.2172 9.48148C10.5103 9.04295 10.6666 8.52738 10.6666 7.99996C10.6666 7.29272 10.3857 6.61444 9.8856 6.11434C9.3855 5.61424 8.70723 5.33329 7.99998 5.33329ZM7.99998 9.33329C7.73627 9.33329 7.47849 9.25509 7.25922 9.10859C7.03996 8.96208 6.86906 8.75384 6.76814 8.5102C6.66723 8.26657 6.64082 7.99848 6.69227 7.73984C6.74372 7.4812 6.8707 7.24362 7.05717 7.05715C7.24364 6.87068 7.48122 6.74369 7.73986 6.69225C7.9985 6.6408 8.26659 6.6672 8.51023 6.76812C8.75386 6.86904 8.9621 7.03993 9.10861 7.2592C9.25512 7.47846 9.33332 7.73625 9.33332 7.99996C9.33332 8.35358 9.19284 8.69272 8.94279 8.94277C8.69274 9.19282 8.35361 9.33329 7.99998 9.33329Z"
+                      fill="#2E426D" />
+                  </svg>
+                </button>
+
+                <button class="kit-action-btn" aria-label="Like">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.44 3.33328C12.7333 2.62475 11.7965 2.19231 10.7989 2.11406C9.80126 2.03581 8.80852 2.31692 8.00001 2.90661C7.15178 2.27571 6.09601 1.98962 5.04529 2.10597C3.99458 2.22232 3.02697 2.73247 2.33733 3.53367C1.64768 4.33488 1.28723 5.36763 1.32854 6.42396C1.36986 7.48029 1.80989 8.48173 2.56001 9.22661L6.70001 13.3733C7.04669 13.7145 7.5136 13.9057 8.00001 13.9057C8.48642 13.9057 8.95333 13.7145 9.30001 13.3733L13.44 9.22661C14.2184 8.44346 14.6553 7.38413 14.6553 6.27995C14.6553 5.17577 14.2184 4.11644 13.44 3.33328ZM12.5 8.30661L8.36001 12.4466C8.3129 12.4942 8.25683 12.5319 8.19504 12.5577C8.13325 12.5835 8.06696 12.5968 8.00001 12.5968C7.93306 12.5968 7.86678 12.5835 7.80498 12.5577C7.74319 12.5319 7.68712 12.4942 7.64001 12.4466L3.50001 8.28661C2.97718 7.75218 2.68442 7.03426 2.68442 6.28661C2.68442 5.53897 2.97718 4.82105 3.50001 4.28661C4.03278 3.76061 4.75133 3.46566 5.50001 3.46566C6.2487 3.46566 6.96724 3.76061 7.50001 4.28661C7.56199 4.3491 7.63572 4.3987 7.71696 4.43254C7.7982 4.46639 7.88534 4.48381 7.97334 4.48381C8.06135 4.48381 8.14849 4.46639 8.22973 4.43254C8.31097 4.3987 8.3847 4.3491 8.44668 4.28661C8.97945 3.76061 9.69799 3.46566 10.4467 3.46566C11.1954 3.46566 11.9139 3.76061 12.4467 4.28661C12.9767 4.81405 13.2791 5.52807 13.289 6.27574C13.299 7.0234 13.0158 7.74524 12.5 8.28661V8.30661Z"
+                      fill="#2E426D" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Components Mini Card -->
+            <div class="components-card">
+              <div class="check-icon-lg">
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.1667 4.25L6.37501 12.0417L2.83334 8.5" stroke="#F8FCFB" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="components-text">
+                <p class="components-title">300+ components</p>
+                <p class="components-subtitle">Built to be customized.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 offset-lg-1">
+          <span class="badge-accent">Technology</span>
+          <h2 class="section-title">We use the latest technologies on the market</h2>
+          <p class="section-description">
+            Get components and examples, including tons of variables that will help you grow your business.
+          </p>
+          <a href="#case-studies" class="btn-link-arrow">
+            See case studies
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.33334 8H12.6667M12.6667 8L8.00001 3.33333M12.6667 8L8.00001 12.6667" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Zigzag-4: App Download -->
+      <div class="row align-items-center zigzag-row">
+        <!-- Columna Texto (Izquierda) -->
+        <div class="col-lg-5 order-2 order-lg-1">
+          <span class="badge-accent">Easy to install</span>
+          <h2 class="section-title">Download, install and run.</h2>
+          <p class="section-description">
+            Get components and examples, including tons of variables that will help you grow your business.
+          </p>
+
+          <!-- Store Buttons Group -->
+          <div class="d-flex flex-wrap gap-3 mt-4">
+
+            <!-- App Store Button -->
+            <a href="#" class="btn btn-store">
+              <svg style="transform: translateY(-2px);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                width="32" height="32">
+                <path fill="currentColor"
+                  d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z" />
+              </svg>
+
+              <div class="store-info">
+                <span class="d-block small-text">Download on the</span>
+                <span class="d-block large-text">App Store</span>
+              </div>
+            </a>
+
+            <!-- Play Store Button -->
+            <a href="#" class="btn btn-store">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.6086 2.67352C3.4137 2.88373 3.30371 3.19793 3.30371 3.59322V20.4071C3.30371 20.8024 3.4137 21.1166 3.6086 21.3268L3.68357 21.4018L13.0654 12.0199V11.935L3.68357 2.5531L3.6086 2.67352ZM16.4889 15.4435L13.6252 12.5798L13.0654 12.0199L13.6252 11.46L16.4839 8.60132L16.5989 8.6663L21.4871 11.44C22.8865 12.2347 22.8865 13.5442 21.4871 14.3389L16.5989 17.1126L16.4889 15.4435ZM13.6202 11.46L4.54321 2.38306C5.07801 1.82326 5.94268 1.88824 6.8973 2.42804L13.6202 11.46ZM13.6202 12.5848L6.8973 21.6167C5.94268 22.1565 5.07801 22.2215 4.54321 21.6617L13.6202 12.5848Z" />
+              </svg>
+              <div class="store-info text-start ms-2">
+                <span class="d-block small-text">GET IT ON</span>
+                <span class="d-block large-text">Google Play</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Columna Imagen (Derecha) -->
+        <div class="col-lg-6 offset-lg-1 order-1 order-lg-2">
+          <div class="zigzag-video-wrapper">
+            <div class="video-display-area">
+              <img src="assets/img_03.jpg" alt="Mobile App Interface" class="img-fluid">
+
+              <button class="play-button-figma">
+                <span class="play-label">Play video</span>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M2.08331 1.25L7.91665 5L2.08331 8.75V1.25Z" stroke="#2E426D" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Banner-CTA -->
+  <section class="section-cta-final">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="cta-banner">
+            <div class="cta-content">
+              <h3 class="cta-title">Infinite solutions</h3>
+              <p class="cta-text">
+                Intuitive markup, powerful and lightning-fast build tools,<br class="d-none d-md-block">
+                everything you need to turn your ideas into incredible products.
+              </p>
+            </div>
+            <a href="#" class="btn-learn-more">
+              Learn more
+              <svg class="ms-2" width="14" height="14" viewBox="0 0 16 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.33334 8H12.6667M12.6667 8L8.00001 3.33333M12.6667 8L8.00001 12.6667" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Award card section -->
+  <section class="awards" id="awards" aria-label="Awards section">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-7">
+          <span class="badge-accent">Awards</span>
+          <h2 class="section-title">Awards for design, creativity, and innovation on the Internet</h2>
+        </div>
+      </div>
+
+      <div class="awards-grid">
+
+        <!-- Card 1: Airbnb - Reviews (externa o interna) -->
+        <a href="#case-studies" class="award-card" aria-label="View Airbnb reviews">
+          <div class="award-card__logo">
+            <img src="assets/airbnb.svg" alt="Airbnb">
+          </div>
+          <div class="award-card__stars" aria-label="4.5 out of 5 stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+          </div>
+          <div class="award-card__rating">4.95 out of 5 stars</div>
+          <div class="award-card__count">from 23 reviews</div>
+        </a>
+
+        <!-- Card 2: Amazon - Lleva a su case study -->
+        <a href="#case-study-amazon" class="award-card offset-up" aria-label="Read Amazon case study">
+          <div class="award-card__logo">
+            <img src="assets/amazon.svg" alt="Amazon">
+          </div>
+          <p class="award-card__description">They build modern looking websites easily using Tabs.</p>
+          <span class="award-card__link">Learn more</span>
+        </a>
+
+        <!-- Card 3: Slack - Lleva a su case study -->
+        <a href="#case-study-slack" class="award-card" aria-label="Read Slack case study">
+          <div class="award-card__logo">
+            <img src="assets/slack.svg" alt="Slack">
+          </div>
+          <p class="award-card__description">They build modern looking websites easily using Trello.</p>
+          <span class="award-card__link">Learn more</span>
+        </a>
+
+        <!-- Card 4: Spotify - Reviews (externa o interna) -->
+        <a href="#case-studies" class="award-card offset-up" aria-label="View Spotify reviews">
+          <div class="award-card__logo">
+            <img src="assets/spotify.svg" alt="Spotify">
+          </div>
+          <div class="award-card__stars" aria-label="5 out of 5 stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="award-card__rating">5.0 out of 5 stars</div>
+          <div class="award-card__count">from 48 reviews</div>
+        </a>
+
+        <!-- Card 5: PayPal - Lleva a su case study -->
+        <a href="#case-study-paypal" class="award-card" aria-label="Read PayPal case study">
+          <div class="award-card__logo">
+            <img src="assets/paypal.svg" alt="Paypal">
+          </div>
+          <p class="award-card__description">They build modern looking websites easily using Docker.</p>
+          <span class="award-card__link">Learn more</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section (después de Awards) -->
+  <section class="case-studies" id="case-studies">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <span class="badge-accent">Success Stories</span>
+          <h2 class="section-title">How leading companies use our platform</h2>
+          <p class="section-description">
+            Discover how industry leaders leverage our tools to build exceptional digital experiences.
+          </p>
+        </div>
+      </div>
+
+      <!-- Case Study Cards -->
+      <div class="row g-4">
+
+        <!-- Amazon Case Study -->
+        <div class="col-lg-4" id="case-study-amazon">
+          <div class="case-study-card">
+            <div class="case-study-card__image">
+              <img src="assets/amazon.svg" alt="Amazon logo" class="case-study-logo">
+            </div>
+            <h3 class="case-study-card__title">Amazon's Digital Transformation</h3>
+            <p class="case-study-card__description">
+              Amazon streamlined their development workflow using our component library,
+              reducing deployment time by 60% and improving team collaboration.
+            </p>
+            <ul class="case-study-card__metrics">
+              <li><strong>60%</strong> faster deployment</li>
+              <li><strong>40%</strong> cost reduction</li>
+              <li><strong>95%</strong> developer satisfaction</li>
+            </ul>
+            <a href="#" class="btn btn-outline-primary btn-sm">Read full story</a>
+          </div>
+        </div>
+
+        <!-- Slack Case Study -->
+        <div class="col-lg-4" id="case-study-slack">
+          <div class="case-study-card">
+            <div class="case-study-card__image">
+              <img src="assets/slack.svg" alt="Slack logo" class="case-study-logo">
+            </div>
+            <h3 class="case-study-card__title">Slack's Scalable Design System</h3>
+            <p class="case-study-card__description">
+              Slack built a cohesive design system with our framework, enabling consistent
+              experiences across 20+ products and 10 million daily users.
+            </p>
+            <ul class="case-study-card__metrics">
+              <li><strong>85%</strong> design consistency</li>
+              <li><strong>3x</strong> faster prototyping</li>
+              <li><strong>50%</strong> fewer bugs</li>
+            </ul>
+            <a href="#" class="btn btn-outline-primary btn-sm">Read full story</a>
+          </div>
+        </div>
+
+        <!-- PayPal Case Study -->
+        <div class="col-lg-4" id="case-study-paypal">
+          <div class="case-study-card">
+            <div class="case-study-card__image">
+              <img src="assets/paypal.svg" alt="PayPal logo" class="case-study-logo">
+            </div>
+            <h3 class="case-study-card__title">PayPal's Modern Infrastructure</h3>
+            <p class="case-study-card__description">
+              PayPal modernized their entire platform using our containerized approach,
+              achieving better scalability and security for millions of transactions.
+            </p>
+            <ul class="case-study-card__metrics">
+              <li><strong>99.99%</strong> uptime</li>
+              <li><strong>70%</strong> better performance</li>
+              <li><strong>200+</strong> countries supported</li>
+            </ul>
+            <a href="#" class="btn btn-outline-primary btn-sm">Read full story</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+  NOTE: Awards cards are fully clickable and link to corresponding case studies.
+  - Cards with star ratings (Airbnb, Spotify) → General case studies section
+  - Cards with descriptions (Amazon, Slack, PayPal) → Specific case study anchor
+  
+  DESIGN DECISION: Used internal anchors instead of external links to keep users 
+  engaged on the page and provide immediate value. In a real scenario, these would 
+  link to detailed case study pages or external review platforms.
+  -->
+  <!-- FAQ section -->
+  <section class="faq" id="faq" aria-label="Frequently Asked Questions">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <span class="badge-accent">Helpful answers</span>
+          <h2 class="section-title">Start building fast, beautiful, and modern-looking websites in no time.</h2>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-8">
+          <div class="accordion faq__accordion" id="accordionPanelsStayOpenExample">
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                  aria-controls="panelsStayOpen-collapseOne">
+                  Which license do I need?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  Our Standard License is perfect for single projects, providing all core components and life-time
+                  access to updates. For agencies managing multiple client sites, we recommend our Extended License for
+                  full flexibility and priority support.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseTwo">
+                  How do I get access to my database?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  Access is granted instantly through your project dashboard. We provide secure connection strings for
+                  PostgreSQL and MySQL, along with an integrated GUI so you can manage your tables directly from the
+                  browser without third-party tools.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseThree">
+                  How do I see previous orders?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  All your billing history and previous invoices are stored in the 'Account Settings' section. You can
+                  view, print, or download invoices as PDF files. We also send a digital receipt to your registered
+                  email address for every transaction.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="faq__cta text-center">
+            <p class="faq__cta-text">I want to start a new project.</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <a href="#" class="btn btn-primary btn-cta">
+                Buy now
+              </a>
+              <a href="#" class="btn btn-outline-dark btn-cta">
+                Learn more
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer" id="footer" aria-label="Footer">
+    <div class="footer__top">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7 text-center text-lg-start">
+            <h2 class="footer__cta-title">Brilliant solutions for your ideas</h2>
+            <p class="footer__cta-subtitle">Modern-looking websites.</p>
+          </div>
+          <div class="col-lg-5 text-center text-lg-end mt-4 mt-lg-0">
+            <div class="d-inline-flex gap-3">
+              <a href="#" class="btn btn-outline-dark btn-cta text-white border-white">Documentation</a>
+              <a href="#" class="btn btn-primary btn-cta">Purchase now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <hr class="footer__divider">
+
+      <div class="footer__middle">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0 text-center text-lg-start">
+            <img src="assets/odoo-white.svg" alt="Odoo" class="footer__logo" height="30">
+            <p class="footer__description">
+              Odoo attempts to bring the best development experience to designers and developers by offering the tools
+              needed for having a quick and solid start in most web projects.
+            </p>
+            <div class="footer__social justify-content-center justify-content-lg-start">
+              <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+              <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2 offset-lg-1">
+            <h5 class="footer__nav-title">Account</h5>
+            <ul class="footer__nav-list">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Billing</a></li>
+              <li><a href="#">Notifications</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <h5 class="footer__nav-title">About</h5>
+            <ul class="footer__nav-list">
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <h5 class="footer__nav-title">Company</h5>
+            <ul class="footer__nav-list">
+              <li><a href="#">Community</a></li>
+              <li><a href="#">Help center</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="footer__copyright">
+              © Odoo. All rights reserved. Developed by <strong>Ricardo Angeles</strong>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <ul class="footer__legal-list justify-content-center justify-content-md-end">
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+  <script src="js/navbar-scroll.js"></script>
+
+</body>
+
+
+
+</html>

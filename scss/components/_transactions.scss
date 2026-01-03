@@ -1,0 +1,92 @@
+// ============================================
+// TRANSACTIONS COMPONENT
+// ============================================
+
+.transactions {
+
+  // Aplicamos el color azul oscuro a los encabezados dentro de transactions
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: $dark-blue-text;
+    margin: 0; // Eliminamos margen por defecto de Bootstrap para evitar desalineación
+  }
+
+  margin-top: $spacing-xl;
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; // Usamos flex-start para que el monto se alinee con la primera línea de texto
+    padding: $spacing-lg 0;
+    border-bottom: 1px solid $gray-200;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column; // Mantiene el status debajo del merchant
+  }
+
+  &__merchant {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $dark-blue-text; // Cambiado a azul oscuro para consistencia
+    margin: 0 0 2px 0; // Margen mínimo inferior
+    line-height: 1.2;
+  }
+
+  &__status {
+    font-size: $font-size-xs;
+    color: $gray-600;
+    margin: 0;
+  }
+
+  &__amount {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $dark-blue-text;
+    white-space: nowrap;
+    line-height: 1.2; // Misma altura de línea que el merchant para alineación perfecta
+    margin-left: $spacing-md;
+  }
+
+  &__view-all {
+    display: inline-block;
+    margin-top: $spacing-lg;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $primary;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+      color: darken($primary, 10%);
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+// ============================================
+// HERO SECTION
+// ============================================
+
+.hero {
+  background-color: $primary;
+  color: $white;
+  position: relative;
+  // ✅ CLAVE: padding-top suficiente para que el contenido no quede detrás del navbar
+  // 80px (altura navbar) + 80px (espacio adicional) = 10rem
+  padding: 10rem 0 8rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  overflow: hidden;
+  // ✅ SIN margin-top negativo
+
+  // Tipografía principal
+  h1,
+  .display-5 {
+    font-family: $font-family-headings;
+    font-weight: $font-weight-bold;
+    line-height: 1.1;
+    letter-spacing: $letter-spacing-tight;
+    color: $white;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-family: $font-family-base;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-lg;
+    opacity: 0.9;
+    max-width: 500px;
+  }
+
+  // Alineación de la acción principal
+  &__btn {
+    margin-top: $spacing-sm;
+  }
+
+  // Sección "Trusted by"
+  &__trusted {
+    margin-top: $spacing-lg;
+
+    &-text {
+      font-size: $font-size-sm;
+      letter-spacing: 0.05em;
+      color: rgba($white, 0.7);
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  &__logos {
+    img {
+      height: 32px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Estilos específicos para la sección de transacciones dentro de la tarjeta
+  .transactions {
+    &__view-all {
+      display: inline-flex;
+      color: $primary;
+      text-decoration: none !important;
+      font-size: 0.85rem;
+      font-weight: 600;
+      position: relative;
+      margin-top: 0.5rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        opacity: 0.7;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Media Query para dispositivos móviles
+@media (max-width: 991px) {
+  .hero {
+    // ✅ Ajustado para mobile: 70px navbar + 50px espacio
+    padding: 7.5rem 0 6rem;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+    text-align: center;
+
+    .lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__trusted {
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+
+    &__logos {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}

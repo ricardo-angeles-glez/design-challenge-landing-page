@@ -1,0 +1,113 @@
+// ============================================
+// TASKS CARD COMPONENT
+// ============================================
+
+.card-tasks-figma {
+  @extend .card;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+  background: $white;
+  
+  .card-tasks-title {
+    font-size: $h5-font-size;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-lg;
+    color: $dark;
+  }
+}
+
+.task-item {
+  margin-bottom: $spacing-lg;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .task-name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $dark-blue-text;
+  }
+  
+  .task-time {
+    font-size: $font-size-xs;
+    color: $gray-600;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    
+    i {
+      font-size: 0.625rem;
+    }
+  }
+}
+
+.progress-bar-custom {
+  height: 6px;
+  background: $gray-200;
+  border-radius: $border-radius-pill;
+  overflow: hidden;
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, $primary 0%, lighten($primary, 10%) 100%);
+    border-radius: $border-radius-pill;
+    transition: width 0.3s ease;
+  }
+}
+
+.card-video-figma {
+  @extend .card;
+  margin-top: $spacing-lg;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  position: relative;
+  box-shadow: $box-shadow-sm;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.play-button-figma {
+  position: absolute;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  background: $white;
+  border: none;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-pill;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $dark-blue-accent;
+  box-shadow: $box-shadow;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-lg;
+  }
+  
+  .play-label {
+    display: inline-block;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

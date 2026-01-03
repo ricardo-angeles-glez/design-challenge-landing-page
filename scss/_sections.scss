@@ -1,0 +1,26 @@
+// ============================================
+// SECTIONS GENERAL STYLES
+// ============================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-sans-serif;
+  font-weight: $font-weight-semibold;
+  letter-spacing: -0.015em;
+}
+
+.mastercard-logo {
+  position: absolute;
+  top: 25px;
+  left: 23px;
+
+  img {
+    width: 36px;
+    height: auto;
+    display: block;
+  }
+}

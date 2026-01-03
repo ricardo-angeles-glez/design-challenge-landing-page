@@ -1,0 +1,128 @@
+.footer {
+  background-color: #161348;
+  color: $white;
+  position: relative;
+  padding: 10rem 0 3rem;
+  clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+
+  // Esto asegura que el footer use el mismo ancho máximo que el navbar
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &__top {
+    margin-bottom: 3.5rem;
+  }
+
+  &__cta-title {
+    color: $white;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__cta-subtitle {
+    font-size: 1.25rem;
+    color: rgba($white, 0.7);
+  }
+
+  &__divider {
+    border: 0;
+    border-top: 1px solid rgba($white, 0.1);
+    margin: 4rem 0;
+    opacity: 1;
+  }
+
+  &__logo {
+    margin-bottom: 1.5rem;
+  }
+
+  &__description {
+    color: rgba($white, 0.6);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    max-width: 350px; // Evita que el texto se estire demasiado y rompa la armonía
+  }
+
+  &__social {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    
+    a {
+      color: rgba($white, 0.5);
+      font-size: 1.4rem;
+      line-height: 1;
+      transition: all 0.3s ease;
+      text-decoration: none;
+
+      i { display: block; }
+
+      &:hover {
+        color: $white;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__nav-title {
+    color: $white;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    li {
+      margin-bottom: 0.75rem;
+      a {
+        color: rgba($white, 0.6);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+        &:hover { color: $white; }
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($white, 0.05);
+  }
+
+  &__copyright {
+    font-size: 0.85rem;
+    color: rgba($white, 0.5);
+    margin-bottom: 0;
+    strong { color: $white; }
+  }
+
+  &__legal-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1.5rem;
+    a {
+      color: rgba($white, 0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      &:hover { color: $white; }
+    }
+  }
+}
+
+// Media Query
+@media (max-width: 991px) {
+  .footer {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    padding-top: 7rem;
+    &__middle { text-align: center; }
+    &__description { margin: 1.5rem auto; }
+  }
+}
