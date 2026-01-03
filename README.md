@@ -4,7 +4,7 @@ Implementación del mockup propuesto utilizando HTML, SCSS y Bootstrap 5.
 
 ## 🖥 Demo
 
-- Deploy: `[Agregar link de Vercel aquí]`
+- Deploy: `https://design-challenge-landing-page-1ppu27gz1.vercel.app/`
 - Repositorio: `https://github.com/ricardo-angeles-glez/design-challenge-landing-page/`
 
 ---
@@ -169,7 +169,7 @@ Usé **SCSS como preprocesador**. La compilación la hice mediante un script de 
 
 - Código fuente: **GitHub**
 - Deploy de producción: **Vercel**
-- Demo link: `[Agregar aquí cuando esté listo]`
+- Demo link: `https://design-challenge-landing-page-1ppu27gz1.vercel.app/`
 
 ---
 
@@ -183,7 +183,7 @@ Implementation of the proposed mockup using HTML, SCSS, and Bootstrap 5.
 
 ## 🖥 Demo
 
-- Deploy: ``
+- Deploy: `https://design-challenge-landing-page-1ppu27gz1.vercel.app/`
 - Repository: `https://github.com/ricardo-angeles-glez/design-challenge-landing-page/`
 
 ---
@@ -348,6 +348,6 @@ I used **SCSS as a preprocessor**. Compilation is done via an npm script (`npm r
 
 - Source Code: **GitHub**
 - Production Deploy: **Vercel**
-- Demo Link: `[Add here when ready]`
+- Demo Link: `https://design-challenge-landing-page-1ppu27gz1.vercel.app/`
 
 ---
