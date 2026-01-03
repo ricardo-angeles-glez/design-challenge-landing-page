@@ -5,7 +5,7 @@ Implementación del mockup propuesto utilizando HTML, SCSS y Bootstrap 5.
 ## 🖥 Demo
 
 - Deploy: `[Agregar link de Vercel aquí]`
-- Repositorio: `[Agregar link de GitHub aquí]`
+- Repositorio: `https://github.com/ricardo-angeles-glez/design-challenge-landing-page/`
 
 ---
 
@@ -183,8 +183,8 @@ Implementation of the proposed mockup using HTML, SCSS, and Bootstrap 5.
 
 ## 🖥 Demo
 
-- Deploy: `[Add Vercel link here]`
-- Repository: `[Add GitHub link here]`
+- Deploy: ``
+- Repository: `https://github.com/ricardo-angeles-glez/design-challenge-landing-page/`
 
 ---
 
