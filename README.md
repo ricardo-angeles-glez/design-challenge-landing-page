@@ -173,7 +173,7 @@ Usé **SCSS como preprocesador**. La compilación la hice mediante un script de 
 
 ---
 
-Perfecto, aquí está la versión en inglés:
+ENGLISH
 
 ---
 
