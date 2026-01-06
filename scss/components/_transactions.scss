@@ -21,7 +21,7 @@
     margin: 0; // Eliminamos margen por defecto de Bootstrap para evitar desalineación
   }
 
-  margin-top: $spacing-xl;
+  margin-top: $spacer * 3;
 
   &__list {
     list-style: none;
@@ -33,7 +33,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start; // Usamos flex-start para que el monto se alinee con la primera línea de texto
-    padding: $spacing-lg 0;
+    padding: $spacer * 1.5 0;
     border-bottom: 1px solid $gray-200;
 
     &:first-child {
@@ -72,12 +72,12 @@
     color: $dark-blue-text;
     white-space: nowrap;
     line-height: 1.2; // Misma altura de línea que el merchant para alineación perfecta
-    margin-left: $spacing-md;
+    margin-left: $spacer;
   }
 
   &__view-all {
     display: inline-block;
-    margin-top: $spacing-lg;
+    margin-top: $spacer * 1.5;
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
     color: $primary;

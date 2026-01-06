@@ -4,7 +4,7 @@
 
 .card-tasks-figma {
   @extend .card;
-  padding: $spacing-xl;
+  padding: $spacer * 3;
   border-radius: $border-radius-lg;
   box-shadow: $box-shadow;
   background: $white;
@@ -12,13 +12,13 @@
   .card-tasks-title {
     font-size: $h5-font-size;
     font-weight: $font-weight-semibold;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacer * 1.5;
     color: $dark;
   }
 }
 
 .task-item {
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacer * 1.5;
   
   &:last-child {
     margin-bottom: 0;
@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: $spacing-sm;
+    margin-bottom: $spacer * 0.5;
   }
   
   .task-name {
@@ -42,7 +42,7 @@
     color: $gray-600;
     display: flex;
     align-items: center;
-    gap: $spacing-xs;
+    gap: $spacer * 0.25;
     
     i {
       font-size: 0.625rem;
@@ -66,7 +66,7 @@
 
 .card-video-figma {
   @extend .card;
-  margin-top: $spacing-lg;
+  margin-top: $spacer * 1.5;
   border-radius: $border-radius-lg;
   overflow: hidden;
   position: relative;
@@ -81,15 +81,15 @@
 
 .play-button-figma {
   position: absolute;
-  bottom: $spacing-lg;
-  right: $spacing-lg;
+  bottom: $spacer * 1.5;
+  right: $spacer * 1.5;
   background: $white;
   border: none;
-  padding: $spacing-sm $spacing-lg;
+  padding: ($spacer * 0.5) ($spacer * 1.5);
   border-radius: $border-radius-pill;
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $spacer * 0.5;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   color: $dark-blue-accent;

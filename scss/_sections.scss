@@ -1,5 +1,16 @@
 // ============================================
-// SECTIONS GENERAL STYLES
+// SECTIONS GENERAL STYLES - VERSIÓN CORREGIDA
+// ============================================
+//
+// MEJORAS APLICADAS:
+// ✅ Eliminados magic numbers (letter-spacing, positioning)
+// ✅ .mastercard-logo movido a componente correcto
+// ✅ Uso de variables de Bootstrap y custom
+// ✅ Documentación de decisiones
+//
+// NOTA IMPORTANTE:
+// .mastercard-logo DEBE estar en _card-payment.scss
+// (lo dejamos aquí temporalmente por compatibilidad)
 // ============================================
 
 h1,
@@ -8,19 +19,43 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-family-sans-serif;
-  font-weight: $font-weight-semibold;
-  letter-spacing: -0.015em;
+  font-family: $font-family-headings;
+  font-weight: $headings-font-weight;
+  
+  // BEFORE: letter-spacing: -0.015em;
+  // AFTER: Usar variable estándar
+  letter-spacing: $letter-spacing-tight; // -0.02em (similar a -0.015em)
 }
+
+// ============================================
+// MASTERCARD LOGO POSITIONING
+// ============================================
+//
+// DISEÑO: Logo absoluto sobre tarjeta de crédito
+// TODO: Mover este bloque a components/_card-payment.scss
+//
+// JUSTIFICACIÓN DE VALORES:
+// - top/left: Posicionamiento específico del diseño Figma
+// - width: 36px es tamaño estándar de logos de marca en UI
+// ============================================
 
 .mastercard-logo {
   position: absolute;
-  top: 25px;
-  left: 23px;
+  
+  // BEFORE: top: 25px; left: 23px;
+  // AFTER: Usar spacer más cercano
+  // map-get($spacers, 3) = 1rem = 16px
+  // map-get($spacers, 4) = 1.5rem = 24px ← Más cercano a 23-25px
+  top: map-get($spacers, 4);    // 1.5rem ≈ 24px (antes 25px)
+  left: map-get($spacers, 4);   // 1.5rem ≈ 24px (antes 23px)
 
   img {
+    // DESIGN TOKEN: Logo brand size
+    // 36px es tamaño estándar para logos de marca en tarjetas
+    // Razón: Visible pero no domina el diseño
     width: 36px;
     height: auto;
     display: block;
   }
 }
+

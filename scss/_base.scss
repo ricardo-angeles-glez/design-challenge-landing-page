@@ -1,6 +1,23 @@
 // ===========================================
-// RESET Y BASE
+// RESET Y BASE - VERSIÓN CORREGIDA
 // ===========================================
+//
+// MEJORAS APLICADAS:
+// ✅ Uso 100% de variables definidas en _variables.scss
+// ✅ Eliminados valores hardcodeados
+// ✅ Documentación de decisiones de diseño
+// ✅ Jerarquía tipográfica consistente
+//
+// PROPÓSITO:
+// Este archivo establece estilos base globales que se aplican
+// a todo el documento HTML. Actúa como capa de normalización
+// sobre Bootstrap Reboot.
+// ===========================================
+
+// ===========================================
+// HTML Y BODY
+// ===========================================
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,77 +36,89 @@ body {
 // ===========================================
 // TIPOGRAFÍA - HEADINGS
 // ===========================================
+// Establece estilos consistentes para todos los encabezados
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $font-family-headings;
-  font-weight: $font-weight-semibold;
+  font-weight: $headings-font-weight; // 600 (semibold)
   line-height: $line-height-tight;
   letter-spacing: $letter-spacing-tight;
-  color: $dark;
+  color: $headings-color; // inherit (usa color del contexto)
 }
 
+// --- TAMAÑOS DE HEADINGS ---
+// Usa variables definidas en _variables.scss
+
 h1, .h1 {
-  font-size: $font-size-4xl;
-  font-weight: $font-weight-bold;
+  font-size: $h1-font-size; // 2.5rem = 40px
+  font-weight: $font-weight-bold; // 700 (más peso para h1)
 }
 
 h2, .h2 {
-  font-size: $font-size-3xl;
+  font-size: $h2-font-size; // 2rem = 32px
 }
 
 h3, .h3 {
-  font-size: $font-size-2xl;
+  font-size: $h3-font-size; // 1.75rem = 28px
 }
 
 h4, .h4 {
-  font-size: $font-size-xl;
+  font-size: $h4-font-size; // 1.5rem = 24px
 }
 
 h5, .h5 {
-  font-size: $font-size-lg;
+  font-size: $h5-font-size; // 1.25rem = 20px
 }
 
 h6, .h6 {
-  font-size: $font-size-base;
+  font-size: $h6-font-size; // 1rem = 16px
 }
 
 // ===========================================
-// TIPOGRAFÍA - ELEMENTOS
+// TIPOGRAFÍA - PÁRRAFOS Y ELEMENTOS
 // ===========================================
+
 p {
-  margin-bottom: 1rem;
+  // BEFORE: margin-bottom: 1rem;
+  margin-bottom: map-get($spacers, 3); // 1rem
   
   &.lead {
     font-size: $font-size-lg;
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-regular; // 400 (normal)
     line-height: $line-height-relaxed;
   }
 }
 
-// Labels y texto pequeño
+// --- TEXTO PEQUEÑO ---
+// Usa las variables de tamaño extendidas
+
 small,
 .small,
 .text-sm {
-  font-size: $font-size-sm;
+  font-size: $font-size-sm; // 0.875rem = 14px
 }
 
 .text-xs {
-  font-size: $font-size-xs;
+  font-size: $font-size-xs; // 0.75rem = 12px
 }
 
-// Texto destacado
+// --- ÉNFASIS Y PESO ---
+// Usa las variables de font-weight extendidas
+
 strong,
 .fw-medium {
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-medium; // 500
 }
 
 .fw-semibold {
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-semibold; // 600
 }
 
 // ===========================================
 // LINKS
 // ===========================================
+
 a {
   color: $primary;
   text-decoration: none;
@@ -101,8 +130,11 @@ a {
 }
 
 // ===========================================
-// BOTONES (mejora tipográfica)
+// BOTONES (mejora tipográfica global)
 // ===========================================
+// Estilos base que se aplican a todos los .btn
+// Los estilos específicos están en components/_buttons.scss
+
 .btn {
   font-family: $font-family-base;
   font-weight: $font-weight-medium;
@@ -110,8 +142,11 @@ a {
 }
 
 // ===========================================
-// NAVBAR (mejora tipográfica)
+// NAVBAR (mejora tipográfica global)
 // ===========================================
+// Estilos base que se aplican a .navbar
+// Los estilos específicos están en _navbar.scss
+
 .navbar {
   font-family: $font-family-base;
   

@@ -7,12 +7,12 @@
   border-bottom-left-radius: 64px;
   
   // Spacing: Usamos tu escala de espaciado (3rem = 48px aprox)
-  padding: $spacing-2xl $spacing-2xl * 1.5; 
+  padding: ($spacer * 3) ($spacer * 4.5) * 1.5; 
   
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $spacing-lg;
+  gap: $spacer * 1.5;
   width: 100%;
   
   // Un borde sutil usando tu variable de color de borde pero con transparencia
@@ -29,7 +29,7 @@
       font-size: clamp($h4-font-size, 4vw, $h2-font-size);
       line-height: $headings-line-height;
       letter-spacing: $letter-spacing-tight;
-      margin-bottom: $spacing-sm;
+      margin-bottom: $spacer * 0.5;
     }
 
     .cta-text {
@@ -59,7 +59,7 @@
     
     display: inline-flex;
     align-items: center;
-    gap: $spacing-sm;
+    gap: $spacer * 0.5;
     transition: $transition-base;
     box-shadow: $box-shadow-sm;
 
@@ -83,7 +83,7 @@
   @media (max-width: 991px) {
     flex-direction: column;
     text-align: center;
-    padding: $spacing-2xl $spacing-xl;
+    padding: ($spacer * 3) ($spacer * 2);
     
     // Suavizamos el radio en móviles para coherencia visual
     border-top-right-radius: $border-radius-xl * 1.5;

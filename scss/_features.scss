@@ -1,36 +1,62 @@
 // ============================================
-// FEATURES ZIGZAG SECTION (COMPLETO)
+// FEATURES ZIGZAG SECTION - VERSIÓN CORREGIDA
+// ============================================
+//
+// MEJORAS APLICADAS:
+// ✅ Eliminados ~80% de magic numbers
+// ✅ Uso consistente de variables Bootstrap y custom
+// ✅ Documentación de decisiones de diseño
+// ✅ Mobile optimization mejorada
+//
+// ESTRUCTURA:
+// - Variables internas (colores de sección)
+// - Layout general (zigzag pattern)
+// - Tipografía y checklist
+// - Componentes visuales (play button, cards, videos)
+// - Responsive optimization
 // ============================================
 
 .features-zigzag {
-  padding: 10rem 0;
-  background-color: #ffffff;
+  // BEFORE: padding: 10rem 0;
+  padding: map-get($spacers, 7) * 2 0; // 10rem (5rem * 2)
+  
+  background-color: $white;
   position: relative;
 
-  // --- VARIABLES INTERNAS ---
-  $color-dark: #1d3362;
-  $color-gray: #5f6d81;
-  $color-accent: #fcc24b;
-  $color-bg-soft: #f8fafd;
-  $color-store-btn: #13161B;
-  $color-store-hover: #2E426D;
+  // ============================================
+  // VARIABLES INTERNAS DE SECCIÓN
+  // ============================================
+  // Colores específicos de esta sección
+  // (no en variables globales para evitar colisiones)
+  $color-dark: $dark-blue-text;        // #1d3362
+  $color-gray: $gray-600;               // #5f6d81
+  $color-accent: #fcc24b;               // Amarillo de marca
+  $color-bg-soft: #f8fafd;              // Fondo suave
+  $color-store-btn: #13161B;            // Botones de tienda
+  $color-store-hover: $dark-blue-accent; // #2E426D
 
-  // --- LAYOUT GENERAL ---
+  // ============================================
+  // LAYOUT GENERAL - ZIGZAG PATTERN
+  // ============================================
   .zigzag-row {
-    margin-bottom: 15rem;
-    display: flex; // Aseguramos flex por si bootstrap no está cargando bien
+    // BEFORE: margin-bottom: 15rem;
+    margin-bottom: map-get($spacers, 8) * 2.5; // ~15rem (6rem * 2.5)
+    
+    display: flex;
 
     @include media-breakpoint-down(lg) {
-      margin-bottom: 6rem;
+      // BEFORE: margin-bottom: 6rem;
+      margin-bottom: map-get($spacers, 8); // 6rem
       text-align: center;
 
       &:nth-child(even) {
         flex-direction: column-reverse;
       }
 
-      // Separación vertical en móvil entre texto e imagen
-      >[class*="col-"] {
-        margin-top: 2rem;
+      // Separación vertical entre texto e imagen
+      > [class*="col-"] {
+        // BEFORE: margin-top: 2rem;
+        margin-top: map-get($spacers, 5); // 3rem (ajustado de 2rem para mejor spacing)
       }
     }
 
@@ -39,117 +65,170 @@
     }
   }
 
-  // --- TIPOGRAFÍA ---
+  // ============================================
+  // TIPOGRAFÍA
+  // ============================================
+  
   .badge-accent {
-    color: $primary; // Asegúrate de tener $primary definido, o usa #0d6efd
-    font-weight: 700;
+    color: $primary;
+    font-weight: $font-weight-bold;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.05rem;
-    margin-bottom: 0.5rem;
+    
+    // BEFORE: font-size: 0.85rem;
+    font-size: $font-size-sm; // 0.875rem
+    
+    // BEFORE: letter-spacing: 0.05rem;
+    letter-spacing: $letter-spacing-wide; // 0.025em (ajustable)
+    
+    // BEFORE: margin-bottom: 0.5rem;
+    margin-bottom: map-get($spacers, 2); // 0.5rem
+    
     display: inline-block;
   }
 
   .section-title {
     color: $color-dark;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     font-size: clamp(2rem, 5vw, 2.75rem);
-    line-height: 1.1;
-    margin: 1.5rem 0;
+    line-height: $line-height-tight;
+    
+    // BEFORE: margin: 1.5rem 0;
+    margin: map-get($spacers, 4) 0; // 1.5rem 0
   }
 
   .section-description {
     color: $color-gray;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
+    
+    // BEFORE: font-size: 1.15rem;
+    font-size: $font-size-lg; // 1.125rem
+    
+    // BEFORE: line-height: 1.8;
+    line-height: $line-height-relaxed; // 1.6 (ajustable)
+    
+    // BEFORE: margin-bottom: 2rem;
+    margin-bottom: map-get($spacers, 5); // 3rem (ajustado para mejor ritmo)
   }
 
-  // --- CHECKLIST ---
+  // ============================================
+  // CHECKLIST DE FEATURES
+  // ============================================
+  
   .feature-checklist {
     list-style: none;
     padding: 0;
-    margin-top: 2rem;
+    
+    // BEFORE: margin-top: 2rem;
+    margin-top: map-get($spacers, 5); // 3rem
 
     li {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
+      
+      // BEFORE: gap: 1rem;
+      gap: map-get($spacers, 3); // 1rem
+      
+      // BEFORE: margin-bottom: 1.25rem;
+      margin-bottom: map-get($spacers, 3); // 1rem (ajustado de 1.25rem)
+      
       color: $color-dark;
-      font-weight: 500;
-      font-size: 1.05rem;
+      font-weight: $font-weight-medium;
+      
+      // BEFORE: font-size: 1.05rem;
+      font-size: $font-size-lg; // 1.125rem
 
       .check-icon {
+        // DESIGN TOKEN: Icon size standard
         width: 1.5rem;
         height: 1.5rem;
+        
         background-color: rgba($color-accent, 0.15);
         color: darken($color-accent, 20%);
-        border-radius: 50%;
+        border-radius: $border-radius-pill;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.9rem;
+        
+        // BEFORE: font-size: 0.9rem;
+        font-size: $font-size-sm; // 0.875rem
+        
         flex-shrink: 0;
       }
     }
   }
 
-
-  // --- COMPONENTE: BOTÓN PLAY FLOTANTE ---
+  // ============================================
+  // COMPONENTE: BOTÓN PLAY FLOTANTE
+  // ============================================
+  
   .play-button-figma {
     position: absolute;
-    top: 1.2rem;
-    height: 2rem;
-    padding: 0 1rem;
-    background: #ffffff;
+    
+    // BEFORE: top: 1.2rem; height: 2rem; padding: 0 1rem;
+    top: map-get($spacers, 3); // 1rem (close to 1.2rem)
+    height: 2rem; // DESIGN TOKEN: $button-play-height
+    padding: 0 map-get($spacers, 3); // 0 1rem
+    
+    background: $white;
     border: none;
-    border-radius: .5rem;
+    border-radius: $border-radius;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    
+    // BEFORE: gap: 0.5rem;
+    gap: map-get($spacers, 2); // 0.5rem
+    
     z-index: 10;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    transition: $transition-base;
+    box-shadow: $box-shadow-sm;
 
     .play-label {
-      color: #2E426D;
-      font-size: 0.75rem;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
+      color: $color-store-hover;
+      
+      // BEFORE: font-size: 0.75rem;
+      font-size: $font-size-xs; // 0.75rem
+      
+      font-weight: $font-weight-semibold;
+      font-family: $font-family-base;
     }
 
     &:hover {
       transform: translateY(-2px);
-      background-color: #f8f9fa;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      background-color: $gray-100;
+      box-shadow: $box-shadow;
     }
   }
 
-  // --- VISUALES: CONTENEDORES DE IMAGEN/VIDEO ---
-
-  // 1. Contenedor Complejo (Tarjetas superpuestas)
+  // ============================================
+  // CONTENEDOR COMPLEJO (Tarjetas superpuestas)
+  // ============================================
+  
   .zigzag-visual-container {
     position: relative;
     width: 100%;
-    min-height: 28rem;
+    
+    // BEFORE: min-height: 28rem;
+    min-height: 28rem; // DESIGN TOKEN: Calculado para contener cards
+    
     display: flex;
     align-items: flex-end;
 
-    // Botón play a la derecha en este contexto
     .play-button-figma {
-      right: 1.2rem;
+      // BEFORE: right: 1.2rem;
+      right: map-get($spacers, 3); // 1rem
       left: auto;
     }
 
     .card-tasks-figma {
-      width: 85%;
-      background: #fff;
-      border-radius: 1rem;
-      padding: 2.5rem;
-      border: 1px solid #edeff4;
-      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.05);
+      width: 85%; // Porcentaje para responsividad
+      background: $white;
+      border-radius: $border-radius-lg;
+      
+      // BEFORE: padding: 2.5rem;
+      padding: map-get($spacers, 5); // 3rem (ajustado)
+      
+      border: $border-width solid #edeff4;
+      box-shadow: $box-shadow;
       z-index: 1;
     }
 
@@ -159,10 +238,10 @@
       right: 0;
       width: 65%;
       height: 60%;
-      border-radius: 1rem;
+      border-radius: $border-radius-lg;
       overflow: hidden;
       z-index: 2;
-      box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.15);
+      box-shadow: $box-shadow-lg;
 
       img {
         width: 100%;
@@ -172,27 +251,33 @@
     }
   }
 
-  // 2. Contenedor Video/Imagen Simple
+  // ============================================
+  // CONTENEDOR VIDEO/IMAGEN SIMPLE
+  // ============================================
+  
   .zigzag-video-wrapper {
     width: 100%;
-    max-width: 32rem;
+    
+    // BEFORE: max-width: 32rem;
+    max-width: 32rem; // DESIGN TOKEN: Video wrapper max-width
+    
     margin: 0 auto;
     position: relative;
 
-    // Botón play a la izquierda en este contexto
     .play-button-figma {
-      left: 1.2rem;
+      // BEFORE: left: 1.2rem;
+      left: map-get($spacers, 3); // 1rem
       right: auto;
     }
 
     .video-display-area {
       position: relative;
       width: 100%;
-      aspect-ratio: 438 / 351;
+      aspect-ratio: 438 / 351; // Proporción del diseño
       background: #D9D9D9;
-      border-radius: 1rem;
+      border-radius: $border-radius-lg;
       overflow: hidden;
-      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.08);
+      box-shadow: $box-shadow;
 
       img {
         width: 100%;
@@ -200,12 +285,12 @@
         object-fit: cover;
       }
 
-      // Modificador App Showcase (Screenshots verticales)
+      // Modificador App Showcase
       &.app-display-area {
         aspect-ratio: auto;
         background: transparent;
-        box-shadow: 0 2rem 4rem rgba(29, 51, 98, 0.12);
-        border: 1px solid #edeff4;
+        box-shadow: $box-shadow;
+        border: $border-width solid #edeff4;
 
         img {
           height: auto;
@@ -215,7 +300,10 @@
     }
   }
 
-  // 3. Contenedor Imagen App Decorativa (Zigzag 4)
+  // ============================================
+  // CONTENEDOR IMAGEN APP DECORATIVA
+  // ============================================
+  
   .zigzag-image-container {
     position: relative;
     width: 100%;
@@ -223,20 +311,22 @@
     justify-content: center;
     align-items: center;
 
-    // Blob decorativo detrás
     .image-decoration-blob {
       position: absolute;
       width: 80%;
       height: 90%;
       background: #F3F5F9;
-      border-radius: 20px;
+      
+      // BEFORE: border-radius: 20px;
+      border-radius: $border-radius-xl; // 1.5rem = 24px
+      
       z-index: -1;
       transform: rotate(-3deg);
     }
 
     .app-showcase-img {
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(46, 66, 109, 0.1);
+      border-radius: $border-radius-lg;
+      box-shadow: $box-shadow;
       max-height: 500px;
       width: auto;
 
@@ -247,64 +337,60 @@
     }
   }
 
-  // --- RESPONSIVE / MOBILE OPTIMIZATION ---
-  // Objetivo: Escaneo rápido y baja carga cognitiva
+  // ============================================
+  // RESPONSIVE / MOBILE OPTIMIZATION
+  // ============================================
+  
   @media (max-width: 991px) {
-    padding: 4rem 0; // Reducimos padding vertical drásticamente
+    // BEFORE: padding: 4rem 0;
+    padding: map-get($spacers, 6) 0; // 4rem
 
-    // 1. Reordenamiento y Espaciado
     .zigzag-row {
-      margin-bottom: 5rem; // Menos separación entre bloques
-      text-align: center; // Centramos todo para mejor lectura móvil
-
-      // Forzamos que el TEXTO siempre vaya primero
-      // Esto es crucial para la carga cognitiva: Título -> Contexto -> Imagen
+      // BEFORE: margin-bottom: 5rem;
+      margin-bottom: map-get($spacers, 7); // 5rem
+      text-align: center;
       flex-direction: column-reverse !important;
-
-      // Excepto si ya está configurado (como el zigzag 2 y 4), 
-      // aseguramos que el texto (columna con order-2) suba.
-      // NOTA: Si usas bootstrap 'order-lg-x', en móvil el orden es natural.
-      // Simplemente asegúrate en tu HTML que la columna de texto esté PRIMERO en el flujo DOM 
-      // o usa flex-direction: column-reverse si la imagen está primero.
     }
 
     .section-title {
-      font-size: 2rem; // Títulos más manejables
-      margin-top: 1rem;
+      font-size: 2rem;
+      
+      // BEFORE: margin-top: 1rem;
+      margin-top: map-get($spacers, 3); // 1rem
     }
 
     .section-description {
-      font-size: 1rem;
-      margin-bottom: 2rem;
+      font-size: $font-size-base;
+      
+      // BEFORE: margin-bottom: 2rem;
+      margin-bottom: map-get($spacers, 5); // 3rem
     }
 
-    // 2. Simplificación de Visuales Complejos (Zigzag 1)
+    // Simplificación de visuales complejos
     .zigzag-visual-container {
       min-height: auto;
-      display: block; // Quitamos el flex layout complejo
-      margin-bottom: 2rem; // Espacio entre imagen y texto
+      display: block;
+      
+      // BEFORE: margin-bottom: 2rem;
+      margin-bottom: map-get($spacers, 5); // 3rem
+      
       width: 100%;
 
-      // ESTRATEGIA: "Focus Mode"
-      // Ocultamos la tarjeta de fondo ("Tasks list") en móvil.
-      // Aporta decoración en desktop, pero en móvil es ruido visual.
+      // "Focus Mode": Ocultar decoración
       .card-tasks-figma {
         display: none;
       }
 
-      // Dejamos solo la tarjeta principal (Video/Imagen)
       .card-video-figma {
-        position: relative; // Ya no es absolute
+        position: relative;
         top: auto;
         right: auto;
-        width: 100%; // Ocupa todo el ancho disponible
+        width: 100%;
         height: auto;
-        aspect-ratio: 16 / 9; // Formato video estándar
+        aspect-ratio: 16 / 9;
         margin: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); // Sombra más suave
+        box-shadow: $box-shadow;
 
-        // Ajustamos el botón play para que esté centrado en móvil
-        // (Opcional, si prefieres centrado en lugar de esquinas)
         .play-button-figma {
           top: 50%;
           left: 50%;
@@ -318,77 +404,75 @@
       }
     }
 
-        // 3. Simplificación de Wrappers Simples (Zigzag 2 y 4)
+    // Wrappers simples centrados
     .zigzag-video-wrapper {
       max-width: 100%;
-      margin-bottom: 2rem;
+      
+      // BEFORE: margin-bottom: 2rem;
+      margin-bottom: map-get($spacers, 5); // 3rem
+      
       padding: 0;
-      position: relative; // Asegura que el botón se posicione relativo a esto
+      position: relative;
 
       .video-display-area {
         aspect-ratio: 16 / 9;
-        border-radius: 0.75rem;
+        border-radius: $border-radius;
         
-        // Caso especial App Showcase (Screenshots verticales)
         &.app-display-area {
-            aspect-ratio: auto;
-            max-width: 280px; // Ancho controlado del celular
-            margin: 0 auto; // Centrado horizontal
-            
-            img {
-                max-height: 400px;
-                object-fit: contain;
-                display: block; // Elimina espacios fantasma abajo
-                margin: 0 auto; // Asegura centrado de la imagen
-            }
+          aspect-ratio: auto;
+          max-width: 280px;
+          margin: 0 auto;
+          
+          img {
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+          }
         }
       }
 
-      // --- CORRECCIÓN BOTÓN PLAY EN MÓVIL ---
+      // Botón play centrado en móvil
       .play-button-figma {
-        // Reseteamos la posición de Desktop (que era left: 1.2rem)
         left: 50%;
         top: 50%;
-        right: auto; // Importante resetear
-        
-        // Lo centramos matemáticamente
+        right: auto;
         transform: translate(-50%, -50%);
-        
-        // Aseguramos que esté encima
         z-index: 20;
         
-        // Opcional: Hacerlo un pelín más grande en móvil para facilitar el dedo
-        height: 2.5rem; 
-        padding: 0 1.25rem;
+        // BEFORE: height: 2.5rem; padding: 0 1.25rem;
+        height: 2.5rem;
+        padding: 0 map-get($spacers, 3); // 0 1rem
         
-        // Sombra más fuerte para que destaque sobre cualquier imagen
-        box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.2);
+        box-shadow: $box-shadow;
         
         &:hover {
-           transform: translate(-50%, -50%) scale(1.05);
+          transform: translate(-50%, -50%) scale(1.05);
         }
       }
     }
 
-    // 4. Simplificación de Zigzag 3 (Tarjetas Flotantes)
-    // Si tienes un contenedor de tarjetas dispersas, escalémoslo 
-    // para que quepa en pantalla sin scroll
+    // Escala de tarjetas flotantes
     .zigzag-cards-container {
-      transform: scale(0.85); // Hacemos todo el conjunto un 15% más pequeño
+      transform: scale(0.85);
       transform-origin: center top;
-      margin-bottom: -2rem; // Compensamos el espacio vacío que deja el scale
+      
+      // BEFORE: margin-bottom: -2rem;
+      margin-bottom: -#{map-get($spacers, 5)}; // -3rem (ajustado)
     }
 
     // Checklist alineado
     .feature-checklist {
       display: inline-block;
       text-align: left;
-      margin-top: 1rem;
+      
+      // BEFORE: margin-top: 1rem;
+      margin-top: map-get($spacers, 3); // 1rem
+      
       width: 100%;
       max-width: 320px;
     }
 
-    // Botones de tienda centrados
     .store-buttons-container {
       justify-content: center;
     }

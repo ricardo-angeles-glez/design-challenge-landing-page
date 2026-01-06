@@ -1,11 +1,20 @@
 // ============================================
 // AWARDS SECTION
 // ============================================
+//
+// DESIGN TOKENS USED FROM _variables.scss:
+// - Colors: $white, $primary, $dark-blue-text, $gray-600, $warning
+// - Spacing: $spacer, map-get($spacers, X)
+// - Typography: $font-size-xs, $font-size-sm, $font-weight-bold, etc.
+// - Border: $border-radius, $accordion-border-color
+// - Shadows: $box-shadow-sm
+//
+// ============================================
 
 .awards {
-  background-color: #FAFBFF;
+  background-color: #FAFBFF; // Could add $bg-light-accent to variables
   position: relative;
-  padding: 8rem 0 12rem; 
+  padding: map-get($spacers, 7) 0 map-get($spacers, 8); // 5rem 0 6rem
   clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
 
   .badge-accent {
@@ -14,89 +23,79 @@
     text-transform: uppercase;
     font-size: $font-size-xs;
     letter-spacing: $letter-spacing-wide;
-    margin-bottom: $spacing-md;
+    margin-bottom: map-get($spacers, 3); // 1rem
     display: inline-block;
   }
 
   .section-title {
     color: $dark-blue-text;
     font-weight: $font-weight-bold;
-    margin-bottom: 4rem;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: map-get($spacers, 6); // 4rem
+    font-size: clamp(#{$h2-font-size * 0.9}, 4vw, $h2-font-size * 1.25);
     line-height: $line-height-tight;
   }
 
   &-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
+    gap: map-get($spacers, 3); // 1rem
     align-items: stretch;
-    margin-top: 2rem;
+    margin-top: map-get($spacers, 4); // 1.5rem
 
     @media (max-width: 1200px) {
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: map-get($spacers, 4); // 1.5rem
     }
 
     @media (max-width: 991px) {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: map-get($spacers, 3); // 1rem
     }
 
     @media (max-width: 576px) {
       grid-template-columns: 1fr;
-      padding: 0 0.5rem;
+      padding: 0 map-get($spacers, 2); // 0.5rem
     }
   }
 }
 
 // ============================================
-// AWARD CARDS - HOVER SUTIL Y PROFESIONAL
+// AWARD CARDS
 // ============================================
 
 .award-card {
   background: $white;
   border-radius: $border-radius;
-  border: 1px solid #EEEFF4;
-  padding: 2.25rem 1.25rem;
+  border: $border-width solid $accordion-border-color;
+  padding: map-get($spacers, 4) map-get($spacers, 3); // 1.5rem 1rem
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  
-  // Sombra base muy sutil
   box-shadow: 0 2px 8px rgba($dark-blue-text, 0.04);
-  
-  // Transiciones suaves y lentas (más profesional)
-  transition: all 0.25s ease-out;
-  
-  // Hacer toda la card clickable
+  transition: $transition-base;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
 
-  // Zigzag Visual en Desktop
   &.offset-up {
     transform: translateY(-40px);
   }
 
   // ============================================
-  // HOVER SUTIL - SIN ANSIEDAD
+  // HOVER STATE
   // ============================================
   &:hover {
-    // Solo elevación mínima y sombra suave
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba($dark-blue-text, 0.08);
     border-color: rgba($dark-blue-text, 0.12);
 
-    // Efecto muy sutil en el logo (casi imperceptible)
     .award-card__logo img {
       opacity: 0.85;
     }
 
-    // El link cambia de color suavemente
     .award-card__link {
       color: $primary;
       
@@ -106,25 +105,22 @@
       }
     }
 
-    // Descripción se oscurece ligeramente
     .award-card__description {
       color: rgba($dark-blue-text, 0.85);
     }
   }
 
-  // Hover especial para cards con zigzag
   &.offset-up:hover {
     transform: translateY(-43px);
   }
 
-  // Efecto de click muy sutil
   &:active {
     transform: translateY(-1px);
     transition: all 0.1s ease;
   }
 
   // ============================================
-  // RESPONSIVE ADJUSTMENTS
+  // RESPONSIVE
   // ============================================
   @media (max-width: 1200px) {
     &.offset-up {
@@ -145,10 +141,10 @@
       transform: translateY(-3px) !important;
     }
     
-    padding: 2rem 1.25rem;
+    padding: map-get($spacers, 4) map-get($spacers, 3);
   }
 
-  // Touch devices: sin hover, solo active
+  // Touch device optimization
   @media (hover: none) and (pointer: coarse) {
     &:hover {
       transform: none;
@@ -157,16 +153,17 @@
 
     &:active {
       transform: scale(0.98);
-      box-shadow: 0 4px 12px rgba($dark-blue-text, 0.08);
+      box-shadow: $box-shadow-sm;
     }
   }
 
   // ============================================
   // CARD ELEMENTS
   // ============================================
+  
   &__logo {
     height: 32px;
-    margin-bottom: 1.5rem;
+    margin-bottom: map-get($spacers, 4); // 1.5rem
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,66 +177,77 @@
     }
   }
 
+  // ============================================
+  // STAR RATING - Bootstrap Icons
+  // ============================================
   &__stars {
-    color: #FFC535;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
     display: flex;
-    gap: 2px;
     justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: map-get($spacers, 2); // 0.5rem
+    
+    .bi-star-fill,
+    .bi-star-half,
+    .bi-star {
+      font-size: $font-size-sm; // 14px
+      color: $warning; // #ffc107
+    }
+    
+    // Empty star
+    .bi-star {
+      color: $gray-300;
+    }
   }
 
   &__rating {
     color: $dark-blue-text;
     font-weight: $font-weight-semibold;
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    font-size: $font-size-base;
+    margin-bottom: map-get($spacers, 1); // 0.25rem
   }
 
   &__count {
     color: $gray-600;
-    font-size: 0.75rem;
+    font-size: $font-size-xs;
     font-weight: $font-weight-medium;
   }
 
   &__description {
     color: $gray-600;
-    font-size: 0.875rem;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    margin-bottom: map-get($spacers, 3); // 1rem
     max-width: 100%;
     transition: color 0.25s ease;
   }
 
   &__link {
     color: $dark-blue-text;
-    font-size: 0.8rem;
+    font-size: $font-size-xs;
     font-weight: $font-weight-bold;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: $letter-spacing-wide;
     padding-bottom: 2px;
-    border-bottom: 1.5px solid rgba($dark-blue-text, 0.2);
-    transition: all 0.25s ease;
+    border-bottom: $border-width solid rgba($dark-blue-text, 0.2);
+    transition: $transition-base;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: map-get($spacers, 1); // 0.25rem
 
-    // Flecha sutil que aparece
     &::after {
       content: '→';
       opacity: 0;
       transform: translateX(-3px);
-      transition: all 0.25s ease;
-      font-size: 0.9rem;
+      transition: $transition-base;
+      font-size: $font-size-sm;
     }
   }
-}
 
-// ============================================
-// ACCESIBILIDAD - FOCUS STATE PROFESIONAL
-// ============================================
-.award-card {
+  // ============================================
+  // ACCESSIBILITY
+  // ============================================
   &:focus {
     outline: 2px solid rgba($primary, 0.5);
     outline-offset: 3px;

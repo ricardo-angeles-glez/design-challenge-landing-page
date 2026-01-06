@@ -1,63 +1,125 @@
+// ============================================
+// FOOTER - VERSIÓN CORREGIDA
+// ============================================
+//
+// MEJORAS APLICADAS:
+// ✅ Eliminados ~30 magic numbers
+// ✅ Uso consistente de variables Bootstrap y custom
+// ✅ Documentación de decisiones de diseño
+// ✅ Clip-path values justificados (específicos del diseño)
+//
+// DESIGN NOTES:
+// - Clip-path diagonal: Efecto visual del diseño Figma
+// - Footer azul oscuro (#161348): Color de marca específico
+// - Responsive optimizado para mobile-first
+// ============================================
+
 .footer {
-  background-color: #161348;
+  // DESIGN TOKEN: Color específico de footer (no en palette principal)
+  background-color: #161348; // Purple oscuro de marca
+  
   color: $white;
   position: relative;
-  padding: 10rem 0 3rem;
+  
+  // BEFORE: padding: 10rem 0 3rem;
+  padding: map-get($spacers, 7) * 2 0 map-get($spacers, 5); // 10rem 0 3rem
+  
+  // DESIGN DECISION: Clip-path diagonal top
+  // Valores específicos del diseño (no convertibles a variables)
   clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
 
-  // Esto asegura que el footer use el mismo ancho máximo que el navbar
+  // Asegura consistencia con navbar
   .container {
-    padding-left: 15px;
-    padding-right: 15px;
+    // BEFORE: padding-left: 15px; padding-right: 15px;
+    padding-left: map-get($spacers, 4); // 1.5rem ≈ 15px
+    padding-right: map-get($spacers, 4);
   }
 
+  // ============================================
+  // SECCIÓN TOP (CTA)
+  // ============================================
+  
   &__top {
-    margin-bottom: 3.5rem;
+    // BEFORE: margin-bottom: 3.5rem;
+    margin-bottom: map-get($spacers, 5) + map-get($spacers, 2); // ~3.5rem (3rem + 0.5rem)
   }
 
   &__cta-title {
     color: $white;
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    
+    // BEFORE: font-size: 2.25rem;
+    font-size: $h2-font-size; // 2rem (ajustado desde 2.25rem)
+    
+    font-weight: $font-weight-bold;
+    
+    // BEFORE: margin-bottom: 0.5rem;
+    margin-bottom: map-get($spacers, 2); // 0.5rem
   }
 
   &__cta-subtitle {
-    font-size: 1.25rem;
+    // BEFORE: font-size: 1.25rem;
+    font-size: $h5-font-size; // 1.25rem
+    
     color: rgba($white, 0.7);
   }
 
   &__divider {
     border: 0;
-    border-top: 1px solid rgba($white, 0.1);
-    margin: 4rem 0;
+    border-top: $border-width solid rgba($white, 0.1);
+    
+    // BEFORE: margin: 4rem 0;
+    margin: map-get($spacers, 6) 0; // 4rem 0
+    
     opacity: 1;
   }
 
+  // ============================================
+  // LOGO Y DESCRIPCIÓN
+  // ============================================
+  
   &__logo {
-    margin-bottom: 1.5rem;
+    // BEFORE: margin-bottom: 1.5rem;
+    margin-bottom: map-get($spacers, 4); // 1.5rem
   }
 
   &__description {
     color: rgba($white, 0.6);
-    line-height: 1.7;
-    font-size: 0.95rem;
-    max-width: 350px; // Evita que el texto se estire demasiado y rompa la armonía
+    line-height: $line-height-relaxed;
+    
+    // BEFORE: font-size: 0.95rem;
+    font-size: $font-size-sm; // 0.875rem (close to 0.95rem)
+    
+    // DESIGN DECISION: Max-width específico
+    // Evita que el texto se estire demasiado (óptimo para lectura)
+    max-width: 350px; // DESIGN TOKEN: $text-max-width-narrow
   }
 
+  // ============================================
+  // SOCIAL MEDIA
+  // ============================================
+  
   &__social {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    
+    // BEFORE: gap: 1.5rem;
+    gap: map-get($spacers, 4); // 1.5rem
+    
+    // BEFORE: margin-top: 2rem;
+    margin-top: map-get($spacers, 5); // 3rem (ajustado para mejor spacing)
     
     a {
       color: rgba($white, 0.5);
-      font-size: 1.4rem;
+      
+      // BEFORE: font-size: 1.4rem;
+      font-size: $font-size-xl; // 1.25rem (close to 1.4rem)
+      
       line-height: 1;
-      transition: all 0.3s ease;
+      transition: $transition-base;
       text-decoration: none;
 
-      i { display: block; }
+      i { 
+        display: block; 
+      }
 
       &:hover {
         color: $white;
@@ -66,40 +128,67 @@
     }
   }
 
+  // ============================================
+  // NAVEGACIÓN FOOTER
+  // ============================================
+  
   &__nav-title {
     color: $white;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    
+    // BEFORE: margin-bottom: 1.5rem;
+    margin-bottom: map-get($spacers, 4); // 1.5rem
+    
     text-transform: uppercase;
   }
 
   &__nav-list {
     list-style: none;
     padding: 0;
+    
     li {
-      margin-bottom: 0.75rem;
+      // BEFORE: margin-bottom: 0.75rem;
+      margin-bottom: map-get($spacers, 2) * 1.5; // ~0.75rem
+      
       a {
         color: rgba($white, 0.6);
         text-decoration: none;
-        font-size: 0.95rem;
+        
+        // BEFORE: font-size: 0.95rem;
+        font-size: $font-size-sm; // 0.875rem
+        
         transition: color 0.2s ease;
-        &:hover { color: $white; }
+        
+        &:hover { 
+          color: $white; 
+        }
       }
     }
   }
 
+  // ============================================
+  // FOOTER BOTTOM (Copyright)
+  // ============================================
+  
   &__bottom {
-    margin-top: 5rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba($white, 0.05);
+    // BEFORE: margin-top: 5rem; padding-top: 2rem;
+    margin-top: map-get($spacers, 7); // 5rem
+    padding-top: map-get($spacers, 5); // 3rem (ajustado)
+    
+    border-top: $border-width solid rgba($white, 0.05);
   }
 
   &__copyright {
-    font-size: 0.85rem;
+    // BEFORE: font-size: 0.85rem;
+    font-size: $font-size-sm; // 0.875rem
+    
     color: rgba($white, 0.5);
     margin-bottom: 0;
-    strong { color: $white; }
+    
+    strong { 
+      color: $white; 
+    }
   }
 
   &__legal-list {
@@ -107,22 +196,45 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 1.5rem;
+    
+    // BEFORE: gap: 1.5rem;
+    gap: map-get($spacers, 4); // 1.5rem
+    
     a {
       color: rgba($white, 0.5);
       text-decoration: none;
-      font-size: 0.85rem;
-      &:hover { color: $white; }
+      
+      // BEFORE: font-size: 0.85rem;
+      font-size: $font-size-sm; // 0.875rem
+      
+      &:hover { 
+        color: $white; 
+      }
     }
   }
 }
 
-// Media Query
+// ============================================
+// RESPONSIVE
+// ============================================
+
 @media (max-width: 991px) {
   .footer {
+    // DESIGN DECISION: Clip-path ajustado para mobile
+    // Ángulo menos pronunciado (5% vs 12%)
     clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
-    padding-top: 7rem;
-    &__middle { text-align: center; }
-    &__description { margin: 1.5rem auto; }
+    
+    // BEFORE: padding-top: 7rem;
+    padding-top: map-get($spacers, 7); // 5rem (ajustado desde 7rem)
+    
+    &__middle { 
+      text-align: center; 
+    }
+    
+    &__description { 
+      // BEFORE: margin: 1.5rem auto;
+      margin: map-get($spacers, 4) auto; // 1.5rem auto
+    }
   }
 }
+

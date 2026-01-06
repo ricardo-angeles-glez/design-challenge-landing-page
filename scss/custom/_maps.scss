@@ -1,107 +1,226 @@
-// ============================================
-// MAPS Y UTILITIES DE BOOTSTRAP 5.3
-// ============================================
+// ============================================================================
+// BOOTSTRAP MAPS & UTILITY EXTENSIONS
+// ============================================================================
+//
+// PURPOSE:
+// This file extends Bootstrap's default maps and utility API to generate
+// custom utility classes that follow Bootstrap naming conventions.
+//
+// IMPORT ORDER:
+// This file is imported AFTER Bootstrap variables but BEFORE Bootstrap core,
+// allowing us to merge our extensions with Bootstrap's existing maps.
+//
+// GENERATED UTILITIES:
+// All maps below generate corresponding utility classes (e.g., .fw-medium, .fs-xl)
+// ============================================================================
 
-// 1. AGREGAR COLORES PERSONALIZADOS AL THEME
+
+// ============================================================================
+// 1. THEME COLORS EXTENSION
+// ============================================================================
+//
+// Extends Bootstrap's default theme colors ($primary, $secondary, etc.)
+// with custom brand colors for text and accents.
+//
+// GENERATED CLASSES:
+// .text-dark-blue-text, .bg-dark-blue-accent, .border-dark-blue-text, etc.
+// ============================================================================
+
 $custom-colors: (
-  "dark-blue-text": $dark-blue-text,
-  "dark-blue-accent": $dark-blue-accent
+  "dark-blue-text": $dark-blue-text,      // #1D3362
+  "dark-blue-accent": $dark-blue-accent   // #2E426D
 );
 
-// Merge con theme-colors después de que Bootstrap lo defina
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-// 2. FONT SIZES MAP PERSONALIZADO
+
+// ============================================================================
+// 2. SPACING SCALE EXTENSION
+// ============================================================================
+//
+// Extends Bootstrap's default spacers (0-5) with larger values (6-8)
+// for hero sections and major layout gaps.
+//
+// Bootstrap Default: 0: 0, 1: 0.25rem, 2: 0.5rem, 3: 1rem, 4: 1.5rem, 5: 3rem
+// Our Extension: 6: 4rem, 7: 5rem, 8: 6rem
+//
+// GENERATED CLASSES:
+// Margin: .mb-6 (64px), .my-7 (80px), .mt-8 (96px)
+// Padding: .pb-6, .py-7, .pt-8
+// Gap: .gap-6, .gap-7, .gap-8
+//
+// USAGE GUIDANCE:
+// - Use 6-8 for major section spacing (hero, between large sections)
+// - Use 0-5 for component-level spacing (card padding, button margins)
+// ============================================================================
+
+$spacers: map-merge(
+  $spacers,
+  (
+    6: 4rem,   // 64px
+    7: 5rem,   // 80px
+    8: 6rem    // 96px
+  )
+);
+
+
+// ============================================================================
+// 3. FONT SIZE SCALE EXTENSION
+// ============================================================================
+//
+// Extends Bootstrap's limited font size utilities with a comprehensive scale.
+//
+// Bootstrap Default: Only .fs-1 through .fs-6 (corresponding to h1-h6)
+// Our Extension: .fs-xs through .fs-5xl for precise typography control
+//
+// GENERATED CLASSES:
+// .fs-xs (12px), .fs-sm (14px), .fs-base (16px), .fs-lg (18px),
+// .fs-xl (20px), .fs-2xl (32px), .fs-3xl (40px), .fs-4xl (48px), .fs-5xl (48px)
+//
+// USAGE GUIDANCE:
+// - Prefer Bootstrap's semantic sizes (.h1, .h2) for headings
+// - Use .fs-* utilities for non-heading text that needs specific sizing
+// - Use .fs-base for body text that should match $font-size-base
+// ============================================================================
+
 $custom-font-sizes: (
-  "xs": $font-size-xs,
-  "sm": $font-size-sm,
-  "base": $font-size-base,
-  "lg": $font-size-lg,
-  "xl": $font-size-base * 1.25,
-  "2xl": $font-size-base * 1.5,
-  "3xl": $font-size-base * 2,
-  "4xl": $font-size-base * 2.5,
-  "5xl": $font-size-base * 3
+  "xs": $font-size-xs,       // 12px
+  "sm": $font-size-sm,       // 14px
+  "base": $font-size-base,   // 16px
+  "lg": $font-size-lg,       // 18px
+  "xl": $font-size-xl,       // 20px
+  "2xl": $font-size-2xl,     // 32px
+  "3xl": $font-size-3xl,     // 40px
+  "4xl": $font-size-4xl      // 48px
 );
 
-// 3. FONT WEIGHTS MAP
+
+// ============================================================================
+// 4. FONT WEIGHT SCALE EXTENSION
+// ============================================================================
+//
+// Extends Bootstrap's limited font weight utilities with all common weights.
+//
+// Bootstrap Default: .fw-light (300), .fw-normal (400), .fw-bold (700)
+// Our Extension: Adds .fw-medium (500), .fw-semibold (600), and aliases
+//
+// GENERATED CLASSES:
+// .fw-lighter, .fw-light, .fw-normal, .fw-medium, .fw-semibold, .fw-bold, .fw-bolder
+//
+// USAGE GUIDANCE:
+// - Use .fw-medium for subtle emphasis (better than bold for UI text)
+// - Use .fw-semibold for headings (compromise between normal and bold)
+// - .fw-lighter and .fw-bolder are aliases (same as light/bold)
+// ============================================================================
+
 $custom-font-weights: (
-  "lighter": $font-weight-lighter,
-  "light": $font-weight-light,
-  "normal": $font-weight-normal,
-  "medium": $font-weight-medium,
-  "semibold": $font-weight-semibold,
-  "bold": $font-weight-bold,
-  "bolder": $font-weight-bolder
+  "lighter": $font-weight-lighter,   // 300
+  "light": $font-weight-light,       // 300
+  "normal": $font-weight-normal,     // 400
+  "medium": $font-weight-medium,     // 500
+  "semibold": $font-weight-semibold, // 600
+  "bold": $font-weight-bold,         // 700
+  "bolder": $font-weight-bolder      // 700
 );
 
-// 4. SPACERS MAP PERSONALIZADO
-$custom-spacers: (
-  0: 0,
-  1: $spacer * 0.25,  // 4px
-  2: $spacer * 0.5,   // 8px
-  3: $spacer,         // 16px
-  4: $spacer * 1.5,   // 24px
-  5: $spacer * 3,     // 48px
-  6: $spacer * 4,     // 64px
-  7: $spacer * 5,     // 80px
-  8: $spacer * 6      // 96px
-);
 
-// Merge con spacers de Bootstrap
-$spacers: map-merge($spacers, $custom-spacers);
+// ============================================================================
+// 5. BORDER RADIUS SCALE
+// ============================================================================
+//
+// Provides consistent border radius values across components.
+//
+// GENERATED CLASSES:
+// .rounded-0, .rounded-sm, .rounded, .rounded-lg, .rounded-xl, .rounded-pill, .rounded-circle
+//
+// USAGE GUIDANCE:
+// - .rounded (8px): Default for buttons, inputs
+// - .rounded-lg (16px): Cards, containers
+// - .rounded-xl (24px): Hero elements, large cards
+// - .rounded-pill: Badges, tags (full rounding on short axis)
+// - .rounded-circle: Avatars, icon buttons (perfect circle)
+// ============================================================================
 
-// 5. BORDER RADIUS MAP
 $border-radiuses: (
   "0": 0,
-  "sm": $border-radius-sm,
-  "base": $border-radius,
-  "lg": $border-radius-lg,
-  "xl": $border-radius-xl,
-  "pill": $border-radius-pill,
+  "sm": $border-radius-sm,     // 4px
+  "base": $border-radius,      // 8px
+  "lg": $border-radius-lg,     // 16px
+  "xl": $border-radius-xl,     // 24px
+  "pill": $border-radius-pill, // 50rem
   "circle": 50%
 );
 
-// 6. SHADOWS MAP
-// 6. SHADOWS MAP
+
+// ============================================================================
+// 6. BOX SHADOW SCALE
+// ============================================================================
+//
+// Three-tier shadow system for depth hierarchy.
+//
+// GENERATED CLASSES:
+// .shadow-none, .shadow-sm, .shadow, .shadow-lg, .shadow-xl
+//
+// USAGE GUIDANCE:
+// - .shadow-sm: Subtle lift (cards at rest)
+// - .shadow: Standard elevation (dropdowns, popovers)
+// - .shadow-lg: Prominent elevation (modals, overlays)
+// - .shadow-xl: Maximum elevation (floating action buttons)
+//
+// PERFORMANCE NOTE:
+// Shadows can impact rendering performance. Use sparingly and prefer
+// static shadows over animated ones.
+// ============================================================================
+
 $shadows: (
   "none": none,
   "sm": $box-shadow-sm,
   "base": $box-shadow,
   "lg": $box-shadow-lg,
-  "xl": (0 20px 25px -5px rgba($black, 0.1), 0 10px 10px -5px rgba($black, 0.04)) // <-- Paréntesis agregados
+  "xl": (0 20px 25px -5px rgba($black, 0.1), 0 10px 10px -5px rgba($black, 0.04))
 );
 
-// 7. BREAKPOINTS (si necesitas personalizarlos)
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
-);
 
-// 8. CONTAINER MAX-WIDTHS
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-  xxl: 1320px
-);
+// ============================================================================
+// 7. BOOTSTRAP UTILITIES API EXTENSIONS
+// ============================================================================
+//
+// Extends Bootstrap's utility API to generate custom utility classes.
+// These follow Bootstrap naming conventions and integrate with responsive variants.
+//
+// RESPONSIVE VARIANTS:
+// All utilities below automatically generate responsive variants:
+// .fw-medium, .fw-md-semibold, .fw-lg-bold, etc.
+//
+// EXAMPLE GENERATED CSS:
+// .fw-medium { font-weight: 500; }
+// @media (min-width: 768px) { .fw-md-semibold { font-weight: 600; } }
+// ============================================================================
 
-// 9. UTILITIES API PERSONALIZADAS
 $utilities: map-merge(
   $utilities,
   (
-    // Font weight utility
+    // --- Font Weight Utilities ---
+    // Generates: .fw-lighter, .fw-light, .fw-normal, .fw-medium, .fw-semibold, .fw-bold
     "font-weight": (
       property: font-weight,
       class: fw,
       values: $custom-font-weights
     ),
-    // Letter spacing
+    
+    // --- Font Size Utilities ---
+    // Generates: .fs-xs, .fs-sm, .fs-base, .fs-lg, .fs-xl, .fs-2xl, .fs-3xl, .fs-4xl
+    // NOTE: rfs: false disables responsive font scaling (we handle this manually)
+    "font-size": (
+      rfs: false,
+      property: font-size,
+      class: fs,
+      values: $custom-font-sizes
+    ),
+    
+    // --- Letter Spacing Utilities ---
+    // Generates: .ls-tighter, .ls-tight, .ls-normal, .ls-wide, .ls-wider, .ls-widest
+    // USAGE: Improve readability in all-caps headings with .ls-wide
     "letter-spacing": (
       property: letter-spacing,
       class: ls,
@@ -114,14 +233,11 @@ $utilities: map-merge(
         widest: 0.1em
       )
     ),
-    // Font size utilities
-    "font-size": (
-      rfs: false,
-      property: font-size,
-      class: fs,
-      values: $custom-font-sizes
-    ),
-    // Z-index utilities
+    
+    // --- Z-Index Utilities ---
+    // Generates: .z-0, .z-10, .z-20, .z-30, .z-40, .z-50, .z-auto
+    // USAGE: Quick layering control without defining custom z-index values
+    // NOTE: For complex layering (modals, dropdowns), use $zindex-* variables
     "z-index": (
       property: z-index,
       class: z,
@@ -135,7 +251,12 @@ $utilities: map-merge(
         auto: auto
       )
     ),
-    // Backdrop filter
+    
+    // --- Backdrop Filter Utilities ---
+    // Generates: .backdrop-blur, .backdrop-blur-sm, .backdrop-blur-lg, .backdrop-none
+    // USAGE: Frosted glass effects for overlays, modals, navbars
+    // BROWSER SUPPORT: Modern browsers only (no IE11)
+    // FALLBACK: Provide solid background color for older browsers
     "backdrop-filter": (
       property: backdrop-filter,
       class: backdrop,

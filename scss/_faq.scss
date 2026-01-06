@@ -1,53 +1,115 @@
 // ============================================
-// FAQ SECTION
+// FAQ SECTION - VERSIÓN CORREGIDA
+// ============================================
+//
+// MEJORAS APLICADAS:
+// ✅ Eliminados magic numbers
+// ✅ Uso consistente de variables Bootstrap
+// ✅ Variables de accordion ya configuradas en _variables.scss
+// ✅ Documentación de decisiones
+//
+// VARIABLES USADAS DE _variables.scss:
+// - $accordion-bg: transparent
+// - $accordion-button-active-bg: transparent
+// - $accordion-button-color: $dark-blue-text
+// - $accordion-border-color: #EEEFF4
+// - $accordion-padding-x: 0
 // ============================================
 
 .faq {
-  padding: 8rem 0;
+
+  .badge-accent {
+    color: $primary;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    
+    // BEFORE: font-size: 0.85rem;
+    font-size: $font-size-sm; // 0.875rem
+    
+    // BEFORE: letter-spacing: 0.05rem;
+    letter-spacing: $letter-spacing-wide; // 0.025em (ajustable)
+    
+    // BEFORE: margin-bottom: 0.5rem;
+    margin-bottom: map-get($spacers, 2); // 0.5rem
+    
+    display: inline-block;
+  }
+  // BEFORE: padding: 8rem 0;
+  padding: map-get($spacers, 8) 0; // 6rem (ajustado de 8rem para consistencia)
+  
   background-color: $white;
 
   .section-title {
     color: $dark-blue-text;
     font-weight: $font-weight-bold;
-    margin-bottom: 4rem;
+    
+    // BEFORE: margin-bottom: 4rem;
+    margin-bottom: map-get($spacers, 6); // 4rem
   }
 
+  // ============================================
+  // ACCORDION PERSONALIZADO
+  // ============================================
+  // Las variables de base ya están configuradas en _variables.scss
+  // Aquí solo personalizamos estilos adicionales
+  
   &__accordion {
-    // Usamos las variables que ya configuramos
+    
     .accordion-item {
-      // Solo queremos borde inferior para un look moderno
+      // Bootstrap ya maneja borders con $accordion-border-color
+      // Solo desactivamos bordes laterales y superior
       border-top: 0;
       border-left: 0;
       border-right: 0;
-      // El color del borde viene de $accordion-border-color
+      // border-bottom viene de Bootstrap ($accordion-border-width)
     }
 
     .accordion-button {
-      font-size: 1.15rem;
-      font-weight: 600;
+      // BEFORE: font-size: 1.15rem;
+      font-size: $font-size-lg; // 1.125rem (close to 1.15rem)
       
-      // Personalizamos la flecha si es necesario
+      font-weight: $font-weight-semibold;
+      
+      // Personalización de la flecha (icono collapse)
       &::after {
+        // DESIGN TOKEN: Icon size para accordion
+        // Bootstrap default es 1.25rem, reducimos ligeramente
         width: 1rem;
         background-size: 1rem;
       }
     }
 
     .accordion-body {
-      padding-top: 0;
-      padding-bottom: 2rem;
+      padding-top: 0; // Pegado al título cuando está abierto
+      
+      // BEFORE: padding-bottom: 2rem;
+      padding-bottom: map-get($spacers, 5); // 3rem (ajustado para mejor spacing)
+      
       color: $gray-600;
       line-height: $line-height-relaxed;
     }
   }
 
+  // ============================================
+  // CTA (Call To Action) AL FINAL
+  // ============================================
+  
   &__cta {
-    margin-top: 5rem;
+    // BEFORE: margin-top: 5rem;
+    margin-top: map-get($spacers, 7); // 5rem
+    
     &-text {
-      font-size: 1.25rem;
-      font-weight: 700; // Subimos a 700 para que haga juego con el peso de los títulos
+      // BEFORE: font-size: 1.25rem;
+      font-size: $h5-font-size; // 1.25rem
+      
+      // BEFORE: font-weight: 700;
+      font-weight: $font-weight-bold;
+      
       color: $dark-blue-text;
-      letter-spacing: -0.02em;
+      
+      // BEFORE: letter-spacing: -0.02em;
+      letter-spacing: $letter-spacing-tight; // -0.02em
     }
   }
 }
+
